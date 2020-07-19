@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!-- header start -->
 <?php include_once 'header.php'; ?>
 <!--header end-->
