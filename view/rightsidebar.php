@@ -89,7 +89,7 @@
             <!-- First Member -->
             <div class="desc">
               <div class="thumb">
-                <img class="img-circle" src="assets/img/ui-divya.jpg" width="35px" height="35px" align="">
+                <img class="img-circle" src="../assets/img/ui-divya.jpg" width="35px" height="35px" align="">
               </div>
               <div class="details">
                 <p>
@@ -101,7 +101,7 @@
             <!-- Second Member -->
             <div class="desc">
               <div class="thumb">
-                <img class="img-circle" src="assets/img/ui-sherman.jpg" width="35px" height="35px" align="">
+                <img class="img-circle" src="../assets/img/ui-sherman.jpg" width="35px" height="35px" align="">
               </div>
               <div class="details">
                 <p>
@@ -113,7 +113,7 @@
             <!-- Third Member -->
             <div class="desc">
               <div class="thumb">
-                <img class="img-circle" src="assets/img/ui-danro.jpg" width="35px" height="35px" align="">
+                <img class="img-circle" src="../assets/img/ui-danro.jpg" width="35px" height="35px" align="">
               </div>
               <div class="details">
                 <p>
@@ -125,7 +125,7 @@
             <!-- Fourth Member -->
             <div class="desc">
               <div class="thumb">
-                <img class="img-circle" src="assets/img/ui-zac.jpg" width="35px" height="35px" align="">
+                <img class="img-circle" src="../assets/img/ui-zac.jpg" width="35px" height="35px" align="">
               </div>
               <div class="details">
                 <p>
