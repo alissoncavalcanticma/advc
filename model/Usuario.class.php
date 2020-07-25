@@ -67,7 +67,7 @@ class Usuario{
 
 	public function getUsuarios($pStatus){
 
-		$sql = "SELECT * FROM usuarios $pStatus";
+		$sql = "SELECT * FROM USUARIOS $pStatus";
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute();
 
@@ -86,7 +86,7 @@ class Usuario{
 		$array = array();
 		$user = $pU;
 		$pass = $pS;
-		$sql = "SELECT * FROM usuarios WHERE login = :user AND senha = :pass AND status != 0";
+		$sql = "SELECT * FROM USUARIOS WHERE LOGIN = :user AND SENHA = :pass AND STATUS != 0";
 		$sql = $this->pdo->prepare($sql);
 		$sql->bindValue(":user", $user);
 		$sql->bindValue(":pass", $pass);
@@ -95,9 +95,9 @@ class Usuario{
 		if($sql->rowCount() > 0){
 			$array = $sql->fetch();
 			session_start();
-			$_SESSION['logon'] = $array['login'];
-			$_SESSION['logon_email'] = $array['email'];
-			$_SESSION['logon_nome'] = $array['nome'];
+			$_SESSION['logon'] = $array['LOGIN'];
+			$_SESSION['logon_email'] = $array['EMAIL'];
+			$_SESSION['logon_nome'] = $array['NOME'];
 			return true;
 		}else{
 			return false;
@@ -106,8 +106,24 @@ class Usuario{
 
 	public function deslogar(){
 		
-		$sessao = session_start();
-		session_unset($sessao);
+		//https://www.itmnetworks.com.br/suporte/manuais/php/function.session-destroy.html
+		session_start();
+
+		// Apaga todas as variáveis da sessão
+		$_SESSION = array();
+
+		// Se é preciso matar a sessão, então os cookies de sessão também devem ser apagados.
+		// Nota: Isto destruirá a sessão, e não apenas os dados!
+		if (ini_get("session.use_cookies")) {
+			$params = session_get_cookie_params();
+			setcookie(session_name(), '', time() - 42000,
+				$params["path"], $params["domain"],
+				$params["secure"], $params["httponly"]
+			);
+		}
+
+		// Por último, destrói a sessão
+		session_destroy();
 
 		return true;
 	}
@@ -126,7 +142,7 @@ class Usuario{
 			return $apelido;
 		}
 
-		return $apelido;
+		//return $apelido;
 	}
 }
 

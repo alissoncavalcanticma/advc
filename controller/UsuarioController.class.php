@@ -30,7 +30,7 @@ class UsuarioController{
 	}
 	public function deslogar(){
 
-     	$this->user->deslogar();
+		$this->user->deslogar();
      	header("Location: ../view/login.php");
 
 		exit;

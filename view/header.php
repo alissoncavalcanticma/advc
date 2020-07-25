@@ -232,7 +232,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.php">Logout</a></li>
+          <li><a class="logout" href="../controller/UsuarioController.class.php?acao=deslogar">Logout</a></li>
         </ul>
       </div>
     </header>
