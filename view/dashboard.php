@@ -302,5 +302,5 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
     </section>
   <!--main content end-->
 <!--footer start-->
-<?php include_once 'footer.php'; ?>
+<?php include_once 'footerDash.php'; ?>
 <!--footer end-->
