@@ -21,10 +21,10 @@ MAIN SIDEBAR MENU
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>Membros</span>
+              <span>Corpo</span>
               </a>
             <ul class="sub">
-              <li><a href="cadMembro.php">Cadastrar</a></li>
+              <li><a href="membros.php">Membros</a></li>
               <li><a href="general.html">General</a></li>
               <li><a href="buttons.html">Buttons</a></li>
               <li><a href="panels.html">Panels</a></li>
