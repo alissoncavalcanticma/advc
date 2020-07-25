@@ -8,25 +8,43 @@ MAIN SIDEBAR MENU
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="../assets/img/users/<?= strtolower($_SESSION['logon']) ?>.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered"><?php echo $_SESSION['logon']; ?></h5>
+          <h5 class="centered"><?php echo ucfirst($_SESSION['logon']); ?></h5>
+          <!-- ITEMMENU Dashboard -->
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="dashboard.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
+          <!-- END ITEMMENU Dashboard -->
+          <!-- ITEMMENU Membros -->
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>UI Elements</span>
+              <span>Membros</span>
               </a>
             <ul class="sub">
+              <li><a href="cadMembro.php">Cadastrar</a></li>
               <li><a href="general.html">General</a></li>
               <li><a href="buttons.html">Buttons</a></li>
               <li><a href="panels.html">Panels</a></li>
               <li><a href="font_awesome.html">Font Awesome</a></li>
             </ul>
           </li>
+          <!-- END ITEMMENU Membros -->
+          <!-- ITEMMENU Finanças -->
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
+              <span>Finanças</span>
+              </a>
+            <ul class="sub">
+              <li><a href="blank.html">Blank Page</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
+            </ul>
+          </li>
+          <!-- END ITEMMENU Finanças -->
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-cogs"></i>
