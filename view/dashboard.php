@@ -1,4 +1,16 @@
-<?php session_start(); ?>
+<?php 
+
+session_start();
+
+if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
+
+  header("Location:login.php");
+  exit;
+      
+}
+
+?>
+
 
 <!-- header start -->
 <?php include_once 'header.php'; ?>

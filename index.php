@@ -8,10 +8,12 @@ if(isset($_SESSION['logon']) && !empty($_SESSION['logon'])){
       //echo $_SESSION['logado'];
       
 }else{
-    header("Location:view/dashboard.php");
-    //header("Location:view/login.php");
+    //header("Location:view/dashboard.php");
+    header("Location:view/login.php");
     exit;
 }
+
+?>
 
 
 

@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(isset($_SESSION['logon']) && !empty($_SESSION['logon'])){
+  header("Location:dashboard.php");
+  exit;
+}
+
 require '../autoload.php';
 
 if(isset($_POST['usuario']) && !empty($_POST['usuario'])){
