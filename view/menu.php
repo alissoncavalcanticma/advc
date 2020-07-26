@@ -11,7 +11,7 @@ MAIN SIDEBAR MENU
           <h5 class="centered"><?php echo ucfirst($_SESSION['logon']); ?></h5>
           <!-- ITEMMENU Dashboard -->
           <li class="mt">
-            <a class="active" href="dashboard.php">
+            <a <?= isset($_GET['active']) && $_GET['active'] == 'd' ? "class='active'" : ""; ?> href="dashboard.php?active=d">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -19,12 +19,12 @@ MAIN SIDEBAR MENU
           <!-- END ITEMMENU Dashboard -->
           <!-- ITEMMENU Membros -->
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a href="" <?= isset($_GET['active']) && $_GET['active'] == 'm' ? "class='dcjq-parent active' style='display:block;'" : "" ; ?>>
               <i class="fa fa-desktop"></i>
               <span>Corpo</span>
               </a>
             <ul class="sub">
-              <li><a href="membros.php">Membros</a></li>
+              <li><a href="membros.php?active=m">Membros</a></li>
               <li><a href="general.html">General</a></li>
               <li><a href="buttons.html">Buttons</a></li>
               <li><a href="panels.html">Panels</a></li>
