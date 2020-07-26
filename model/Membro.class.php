@@ -2,28 +2,43 @@
 #Usar Desisgn Pattern Fluent Interface
 #id dc motivo servico equipamento obs visitante empresa operador data entrada saida meio_de_contato solicitacao_acesso agendamento chegada area_atuacao
 #
-class Acesso{
+class Membro{
 	private $pdo;
 
 	private $id;
-	private $dc;
-	private $turno;
-	private $operador;
-	private $operador_2;
-	private $data; 
-	private $motivo;
-	private $servico;
-	private $equipamento;
+	private $nome;
+	private $sexo;
+	private $nasc;
+	private $idade;
+	private $nat;
+	private $nac;
+	private $estcv;
+	private $esc;
+	private $prof;
+	private $rg;
+	private $uf_rg;
+	private $cpf;
+	private $mae;
+	private $pai;
+	private $conjuge;
+	private $dt_casamento;
+	private $endereco;
+	private $bairro;
+	private $cidade;
+	private $cep;
+	private $uf;
+	private $fone1;
+	private $fone2;
+	private $email;
+	private $igreja;
+	private $funcecles;
+	private $funcadm;
+	private $situacao;
+	private $recepcao;
+	private $cv;
+	private $bat;
 	private $obs;
-	private $solicitante; 
-	private $empresa;
-	private $entrada;
-	private $saida;
-	private $meio_de_contato;
-	private $solicitacao_acesso;
-	private $agendamento;
-	private $chegada;
-	private $area_atuacao;
+
 
 	public function __construct($pdo){
 
