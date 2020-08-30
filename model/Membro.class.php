@@ -4,7 +4,7 @@
 #
 class Membro{
 	private $pdo;
-	/*
+	
 	private $id;
 	private $nome;
 	private $sexo;
@@ -43,7 +43,7 @@ class Membro{
 	private $cv;
 	private $bat;
 	private $obs;
-	*/
+	
 
 	public function __construct($pdo){
 
@@ -70,6 +70,21 @@ class Membro{
 		
 		return $array;
 
+	}
+	public function getFuncEcles($pFUNCECLES){
+
+		$sql = "SELECT FUNCAO FROM FUNCECLES WHERE ID = $pFUNCECLES";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute();
+
+		$fe = "";
+		if($sql->rowCount() > 0){
+			$fe = $sql->fetch(); 
+			return $fe = $fe[0];
+
+		}
+		return $fe;
+		//echo $funcecles;die("oi");
 	}
 }
 /*

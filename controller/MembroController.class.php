@@ -38,6 +38,14 @@ class MembroController{
 		
 		return $idade;
 	}
+	public function retornaFuncEcles($pFUNCECLES){
+		
+		$func = $pFUNCECLES;
+		$pdo = new Conexao();
+		$membro = new Membro($pdo);
+		
+		return $membro->getFuncEcles($func);
+	}
 }
 
 

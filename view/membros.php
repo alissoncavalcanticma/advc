@@ -47,10 +47,10 @@ $membroC = new MembroController();
                         <th>ID</th>
                         <th>Nome</th>
                         <th class="numeric">CPF</th>
-                        <th class="numeric">Função</th>
-                        <th class="numeric">Idade</th>
-                        <th class="numeric">Telefone</th>
-                        <th class="numeric">E-mail</th>
+                        <th class="numeric">IDADE</th>
+                        <th class="numeric">TELEFONE</th>
+                        <th class="numeric">E-MAIL</th>
+                        <th class="numeric">FUNÇÃO ECLESIÁSTICA</th>
                         <th class="numeric">Status</th>
                         <th class="numeric">Ações</th>
                       </tr>
@@ -66,14 +66,14 @@ $membroC = new MembroController();
                             <tr>
                               <td><?= $_M['ID']; ?></td>
                               <td><?= $_M['NOME']; ?></td>
-                              <td class="numeric"><?= $_M['CPF']; ?></td>
-                              <td class="numeric"><?= $_M['FUNCECLES']; ?></td>
+                              <td class="numeric"><?= $_M['CPF']; ?></td>                            
                               <td class="numeric"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
                               <td class="numeric"><?= $_M['FONE1']; ?></td>
                               <td class="numeric"><?= $_M['EMAIL']; ?></td>
+                              <td class="numeric"><?= $membroC->retornaFuncEcles($_M['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
                               <td class="numeric"><?= $_M['SITUACAO']; ?></td>
                               <td class="numeric">
-                                  <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                  <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button>
                                   <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                               </td>
