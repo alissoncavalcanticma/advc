@@ -22,6 +22,22 @@ class MembroController{
 			return $membro->getMembros();
 
 		}
+	public function calculaIdade($pNasc){
+		$nasc = $pNasc;
+
+		// separando yyyy, mm, ddd
+		list($ano, $mes, $dia) = explode('-', $nasc);
+
+		// data atual
+		$hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+		// Descobre a unix timestamp da data de nascimento do fulano
+		$nasc = mktime( 0, 0, 0, $mes, $dia, $ano);
+
+		// cálculo
+		$idade = floor((((($hoje - $nasc) / 60) / 60) / 24) / 365.25);
+		
+		return $idade;
+	}
 }
 
 

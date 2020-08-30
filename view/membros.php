@@ -68,7 +68,7 @@ $membroC = new MembroController();
                               <td><?= $_M['NOME']; ?></td>
                               <td class="numeric"><?= $_M['CPF']; ?></td>
                               <td class="numeric"><?= $_M['FUNCECLES']; ?></td>
-                              <td class="numeric"><?= $_M['NASC']; ?></td>
+                              <td class="numeric"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
                               <td class="numeric"><?= $_M['FONE1']; ?></td>
                               <td class="numeric"><?= $_M['EMAIL']; ?></td>
                               <td class="numeric"><?= $_M['SITUACAO']; ?></td>
