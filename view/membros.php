@@ -2,12 +2,19 @@
 
 session_start();
 
+require '../autoload.php';
+
 if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
 
   header("Location:login.php");
   exit;
       
 }
+
+
+$membroC = new MembroController();
+
+
 
 ?>
 <!-- header start -->
@@ -49,8 +56,32 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
                       </tr>
                     </thead>
                     <tbody>
-                      
-                        <tr>
+                      <?php
+                      $_M = $membroC->listaMembros();
+
+
+
+                      foreach($_M as $_M):
+                        ?>
+                            <tr>
+                              <td><?= $_M['ID']; ?></td>
+                              <td><?= $_M['NOME']; ?></td>
+                              <td class="numeric"><?= $_M['CPF']; ?></td>
+                              <td class="numeric"><?= $_M['FUNCECLES']; ?></td>
+                              <td class="numeric"><?= $_M['NASC']; ?></td>
+                              <td class="numeric"><?= $_M['FONE1']; ?></td>
+                              <td class="numeric"><?= $_M['EMAIL']; ?></td>
+                              <td class="numeric"><?= $_M['SITUACAO']; ?></td>
+                              <td class="numeric">
+                                  <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                              </td>
+                          </tr>
+                          <?php
+                          endforeach;
+                      ?>
+                    <!-- <tr>
                           <td>0001</td>
                           <td>Alisson Cavalcanti Galvão</td>
                           <td class="numeric">000.000.000-41</td>
@@ -64,7 +95,7 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
                               <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                               <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></td>
                         </tr>
-
+                        -->
                     </tbody>
                   </table>
                 </section>
