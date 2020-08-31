@@ -39,7 +39,15 @@ $membroC = new MembroController();
           <div class="row mt">
             <div class="col-lg-12">
               <div class="content-panel">
-                <h4><i class="fa fa-angle-right"></i> Membros </h4>
+              <div>
+                  <div class="float:left;width:50%">
+                    <h4>Membros </h4>
+                  </div>
+                  <div style="float:right">
+                    <h4><button onclick="window.location.href='cadMembros.php'">ADD</button></h4>
+                  </div>
+              </div>  
+              
                 <section id="unseen">
                   <table class="table table-bordered table-striped table-condensed table-hover">
                     <thead style="color:honeydew;background-color:gray">
