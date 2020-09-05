@@ -58,7 +58,7 @@ $membroC = new MembroController();
               <form action="">
                 <!-- NOME -->
                     <div class="row rowForm">
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             <label class="input-group-text" for="inputGroupSelect01">Nome:</label>
                             <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!" required>
                         </div>
@@ -79,6 +79,145 @@ $membroC = new MembroController();
                         </div>
                       </div>
                 <!-- END SEXO -->
+                <!-- NASC -->
+                <div class="row rowForm">
+                        <div class="col-md-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Data de nascimento:</label>
+                                <div class='input-group date' id='datetimepicker10'>
+                                    <input class="form-control" size="16" type="text" name="NASC" id="NASC" value="" placeholder="ex: 19/02/1990" required>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar">
+                                            </span>
+                                        </span>
+                                </div>
+                        </div>
+                      </div>
+                <!-- END NASC -->
+                <!-- NAT -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                                <label class="input-group-text" for="inputGroupSelect01">Naturalidade:</label>
+                                <div class="form-group" style="width:100%">
+                                    <div style="float:left;width:80%">
+                                      <input type="text" name="NAT" class="form-control" id="NAT" placeholder="Naturalidade (Cidade)" data-rule="naturalidade" data-msg="Informe sua naturalidade!" required>
+                                    </div>
+                                    <div style="float:right;width:13%">
+                                          <input type="text" name="NAT_UF" class="form-control" id="NAT_UF" placeholder="UF" data-rule="maxlen:2" data-msg="UF" maxlength="2" required>
+                                    </div>
+                                </div>
+                        </div>
+                      </div>
+                <!-- END NAT -->
+                <!-- NAC -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                                <label class="input-group-text" for="inputGroupSelect01">Nacionalidade:</label>
+                                <div class="form-group">
+                                  <input type="text" name="NAC" class="form-control" id="NAC" placeholder="Nacionalidade" data-rule="nacionalidade" data-msg="Informe sua nacionalidade!" required>
+                                </div>
+                        </div>
+                      </div>
+                <!-- END NAC -->
+                <!-- ESTADO CIVIL -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                              <label class="input-group-text" for="inputGroupSelect01">Estado Civil</label>
+                              <div class="form-group">
+                                <select class="custom-select" id="inputGroupSelect02" name="ESTCV" required>
+                                    <option value="">........Selecione...........</option>
+                                    <option value="SOLTEIRO">Solteiro(a)</option>
+                                    <option value="CASADO">Casado(a)</option>
+                                    <option value="DIVORCIADO">Divórciado(a)</option>
+                                    <option value="VIUDO">Viúvo(a)</option>
+                                    <option value="OUTROS">Outros</option>
+                                </select>
+                              </div>
+                              
+                        </div>
+                      </div>
+                <!-- END ESTADO CIVIL -->
+                <!-- CONJUGE -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                              <label class="input-group-text" for="inputGroupSelect01">Cônjuge:</label>
+                              <div class="form-group">
+                                <input type="text" name="CONJUGE" class="form-control" id="CONJUGE" placeholder="Nome do Cônjunge (Se houver)" data-rule="minlen:4" data-msg="Insira o nome do seu cônjunge!">
+                            </div>
+                              
+                        </div>
+                      </div>
+                <!-- END CONJUGE -->
+                <!-- DT_CASAMENTO -->
+                <div class="row rowForm">
+                        <div class="col-md-4">
+                              <label class="input-group-text" for="inputGroupSelect01">Data de casamento:</label>
+                              <div class="form-group" style="width:70%">
+                                    <div class='input-group date' id='datetimepicker10'>
+                                    <input class="form-control" size="16" type="text" name="DT_CASAMENTO" id="DT_CASAMENTO" value="" placeholder="ex: 19/02/1990">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar">
+                                            </span>
+                                        </span>
+                                    </div>
+                              </div>
+                              
+                        </div>
+                      </div>
+                <!-- END DT_CASAMENTO -->
+                <!-- MAE -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                              <label class="input-group-text" for="inputGroupSelect01">Mãe:</label>
+                              <div class="form-group">
+                                <input type="text" name="MAE" class="form-control" id="MAE" placeholder="Nome da Mãe" data-rule="minlen:4" data-msg="Insira o nome da sua mãe!" required>
+                              </div>
+                              
+                        </div>
+                      </div>
+                <!-- END MAE -->
+                <!-- PAI -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                              <label class="input-group-text" for="inputGroupSelect01">Pai:</label>
+                              <div class="form-group">
+                                <input type="text" name="PAI" class="form-control" id="PAI" placeholder="Nome do Pai" data-rule="minlen:4" data-msg="Insira o nome do seu pai!">
+                              </div>
+                              
+                        </div>
+                      </div>
+                <!-- END PAI -->
+                <!-- RG - CPF -->
+                <div class="row rowForm">
+                        <div class="col-md-9">
+                              
+                              <div class="form-group" style="width:50%; float:left">
+                                  <div>
+                                    <label class="input-group-text" for="inputGroupSelect01"">RG:</label>
+                                  </div>
+                                  <div style="float:left;width:78%">
+                                      <input type="tel" name="RG" class="form-control" id="RG" placeholder="RG (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="7" required>
+                                  </div>
+                                  <div style="float:right;width:20%">
+                                      <input type="text" name="UF_RG" class="form-control" id="UF_RG" placeholder="UF" data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" required>
+                                  </div>
+                              </div>
+
+                              
+                              <div class="form-group" style="width:45%; float:left; margin-left: 35px">
+                                  <div>
+                                    <label class="input-group-text" for="inputGroupSelect01">CPF:</label>
+                                  </div>
+                                  <div class="form-group" style="width:100%">
+                                    <div style="float:left;width:100%">
+                                        <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="CPF (Só número)" data-rule="minlen:4" data-msg="Insira seu número de CPF!" maxlength="11" required>
+                                    </div>
+                                  </div>
+                              </div>
+
+                              
+                        </div>
+                      </div>
+                <!-- END RG - CPF -->
               </form>
 <!-- END FORM -->
                     
@@ -87,96 +226,6 @@ $membroC = new MembroController();
                       <div class="row mt">
                         <div class="">
 
-                            <!-- Nascimento -->
-                            <div>
-                              <label>Data de Nascimento</label>
-                            </div>
-
-                            <div class="form-group" style="width:70%">
-                                    <div class='input-group date' id='datetimepicker10'>
-                                    <input class="form-control" size="16" type="text" name="NASC" id="NASC" value="" placeholder="ex: 19/02/1990" required>
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar">
-                                            </span>
-                                        </span>
-                                    </div>
-                            </div>
-                              
-                            <!-- Naturalidade -->
-                            <div class="form-group" style="width:100%">
-                              <div style="float:left;width:80%">
-                                <input type="text" name="NAT" class="form-control" id="NAT" placeholder="Naturalidade (Cidade)" data-rule="naturalidade" data-msg="Informe sua naturalidade!" required>
-                              </div>
-                              <div style="float:right;width:20%">
-                                    <input type="text" name="NAT_UF" class="form-control" id="NAT_UF" placeholder="UF" data-rule="maxlen:2" data-msg="UF" maxlength="2" required>
-                                </div>
-                            </div>
-                            <br><br><br>
-                            <!-- Nacionalidade -->
-                            <div class="form-group">
-                              <input type="text" name="NAC" class="form-control" id="NAC" placeholder="Nacionalidade" data-rule="nacionalidade" data-msg="Informe sua nacionalidade!" required>
-                            </div>
-
-                            <!-- Estado Civil -->
-                            <div class="input-group mb-6">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Estado Civil</label>
-                              </div>
-                              <select class="custom-select" id="inputGroupSelect02" name="ESTCV" required>
-                                <option value="">........Selecione...........</option>
-                                <option value="SOLTEIRO">Solteiro(a)</option>
-                                <option value="CASADO">Casado(a)</option>
-                                <option value="DIVORCIADO">Divórciado(a)</option>
-                                <option value="VIUDO">Viúvo(a)</option>
-                                <option value="OUTROS">Outros</option>
-                              </select>
-                            </div>
-                            <br>
-                            <!-- CONJUGE -->
-
-                            <div class="form-group">
-                              <input type="text" name="CONJUGE" class="form-control" id="CONJUGE" placeholder="Nome do Cônjunge (Se houver)" data-rule="minlen:4" data-msg="Insira o nome do seu cônjunge!">
-                            </div>
-                          
-                            <!-- Data de Casamento -->
-
-                            <div>
-                              <label>Data de Casamento</label>
-                            </div>
-
-                            <div class="form-group" style="width:70%">
-                                    <div class='input-group date' id='datetimepicker10'>
-                                    <input class="form-control" size="16" type="text" name="DT_CASAMENTO" id="DT_CASAMENTO" value="" placeholder="ex: 19/02/1990">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar">
-                                            </span>
-                                        </span>
-                                    </div>
-                            </div>
-                            
-                            <!-- MAE -->
-
-                            <div class="form-group">
-                              <input type="text" name="MAE" class="form-control" id="MAE" placeholder="Nome da Mãe" data-rule="minlen:4" data-msg="Insira o nome da sua mãe!" required>
-                            </div>
-                            
-
-                            <!-- PAI -->
-
-                            <div class="form-group">
-                              <input type="text" name="PAI" class="form-control" id="PAI" placeholder="Nome do Pai" data-rule="minlen:4" data-msg="Insira o nome do seu pai!">
-                            </div>
-
-                            <!-- RG -->
-                            <div class="form-group" style="width:70%">
-                                <div style="float:left;width:80%">
-                                    <input type="tel" name="RG" class="form-control" id="RG" placeholder="RG (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="7" required>
-                                </div>
-                                <div style="float:right;width:20%">
-                                    <input type="text" name="UF_RG" class="form-control" id="UF_RG" placeholder="UF" data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" required>
-                                </div>
-                            </div>
-                            <br><br><br>
                             
 
                             <!-- CPF -->

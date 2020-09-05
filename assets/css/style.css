@@ -3516,10 +3516,14 @@ ul.chat-available-user li a:hover {
 }
 
 /*My-css(alsTWO)*/
+
+/*Style Cadastro*/
 .sc {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 60px;
+    padding-right: 50px;
 }
+
+/*row do Form*/
 .rowForm {
     padding-bottom: 8px;
 }
