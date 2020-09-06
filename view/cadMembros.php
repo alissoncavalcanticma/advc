@@ -213,11 +213,222 @@ $membroC = new MembroController();
                                     </div>
                                   </div>
                               </div>
-
-                              
                         </div>
                       </div>
-                <!-- END RG - CPF -->
+                      <!-- END RG - CPF -->
+                      <!-- TITULO -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                    <label class="input-group-text" for="inputGroupSelect01">Título:</label>
+                                    <div class="form-group" style="width:100%" >
+                                        <div style="float:left;width:60%">
+                                            <input type="tel" name="TIT_NUM" class="form-control" id="TIT_NUM" placeholder="Título (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="12">
+                                        </div>
+                                        <div style="float:right;width:20%">
+                                            <input type="tel" name="TIT_SEC" class="form-control" id="TIT_SEC" placeholder="Seção" data-rule="maxlen:4" data-msg="Seção do Título!" maxlength="4">
+                                        </div>
+                                        <div style="float:right;width:20%">
+                                            <input type="tel" name="TIT_ZONA" class="form-control" id="TIT_ZONA" placeholder="Zona" data-rule="maxlen:3" data-msg="Zona do Título!" maxlength="3">
+                                        </div>
+                                    </div>
+                                    
+                              </div>
+                      </div>
+                      <!-- END TITULO -->
+                      <!-- CNH -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                    <label class="input-group-text" for="inputGroupSelect01">CNH:</label>
+                                    <div class="form-group" style="width:70%">
+                                        <div style="float:left;width:80%">
+                                            <input type="tel" name="CNH" class="form-control" id="CNH" placeholder="CNH (Só números)" data-rule="minlen:12" data-msg="Insira seu número de CNH!" maxlength="12">
+                                        </div>
+                                        <div style="float:right;width:20%">
+                                            <input type="text" name="CAT_CNH" class="form-control" id="CAT_CNH" placeholder="Categ." data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" >
+                                        </div>
+                                    </div>
+                                    
+                              </div>
+                      </div>
+                      <!-- END CNH -->
+                      <!-- ESCOLARIDADE - PROFISSAO -->
+                      <div class="row rowForm">
+                            <div class="col-md-8">
+                                  <div style="width:50%; float: left;">
+                                      <div>      
+                                        <label class="input-group-text" for="inputGroupSelect01">Escolaridade:</label>
+                                      </div> 
+                                      <div>
+                                          <select class="custom-select" id="inputGroupSelect02" name="ESC" required>
+                                                  <option value="">........Selecione...........</option>
+                                                  <option value="0">ALFABETIZAÇÃO</option>
+                                                  <option value="1">FUNDAMENTAL - INCOMPLETO</option>
+                                                  <option value="2">FUNDAMENTAL - COMPLETO</option>
+                                                  <option value="3">MÉDIO - INCOMPLETO</option>
+                                                  <option value="4">MÉDIO - COMPLETO</option>
+                                                  <option value="5">SUPERIOR - INCOMPLETO</option>
+                                                  <option value="6">SUPERIOR - COMPLETO</option>
+                                                  <option value="7">ESPECIALIZAÇÃO - INCOMPLETO</option>
+                                                  <option value="8">ESPECIALIZAÇÃO - COMPLETO</option>
+                                                  <option value="9">MESTRADO - INCOMPLETO</option>
+                                                  <option value="10">MESTRADO - COMPLETO</option>
+                                                  <option value="11">DOUTORADO - INCOMPLETO</option>
+                                                  <option value="12">DOUTORADO - COMPLETO</option>
+                                                  <option value="13">PÓS-DOUTORADO - INCOMPLETO</option>
+                                                  <option value="14">PÓS-DOUTORADO - COMPLETO</option>
+                                            </select>
+                                      </div>  
+                                  </div>
+                                  
+                                  <div style="width:50%; float: left;">
+                                      <div>
+                                        <label class="input-group-text" for="inputGroupSelect01">Profissão:</label>
+                                      </div>    
+                                      <div>      
+                                        <input type="text" name="PROF" class="form-control" id="PROF" placeholder="Profissão" data-rule="minlen:4" data-msg="Insira sua profissão!" required>
+                                      </div>
+                                  </div>
+                            </div>   
+                      </div>
+                      <!-- END ESCOLARIDADE - PROFISSAO -->
+                      <div style="text-align:center;margin-top: 10px; margin-bottom: 10px"><strong>--------------- Endereço ---------------</strong></div>
+                      <!-- ENDEREÇO -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                    <label class="input-group-text" for="inputGroupSelect01">Endereço:</label>
+                                    <div class="form-group" style="width:100%">
+                                    <div class="form-group">
+                                      <input type="text" name="ENDERECO" class="form-control" id="ENDERECO" placeholder="Endereço" data-rule="minlen:4" data-msg="Insira seu endereço!" required>
+                                    </div>
+                                    </div>
+                                    
+                              </div>
+                      </div>
+                      <!-- END ENDEREÇO -->
+                      <!-- COMPLEMENTO -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                    <div class="form-group" style="width:100%">
+                                      <div class="form-group">
+                                        <input type="text" name="COMP_END" class="form-control" id="COMP_END" placeholder="Complemento / Ponto de Referência" data-rule="minlen:4" data-msg="Complemento de Endereço!">
+                                      </div>
+                                    </div>
+                                    
+                              </div>
+                      </div>
+                      <!-- END COMPLEMENTO -->
+                      <!-- BAIRRO - CIDADE -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                <div class="form-group" style="width:100%">
+                                  <div style="float:left; width:50%">
+                                    <input type="text" name="BAIRRO" class="form-control" id="BAIRRO" placeholder="Bairro" data-rule="minlen:4" data-msg="Insira seu bairro!" required>
+                                  </div>
+                                  <div style="float:left; width:50%">
+                                    <input type="text" name="CIDADE" class="form-control" id="CIDADE" placeholder="Cidade" data-rule="minlen:4" data-msg="Insira sua cidade!" required>
+                                  </div>
+                                </div>
+                                    
+                              </div>
+                      </div>
+                      <!-- END BAIRRO - CIDADE -->
+                      <!-- UF - CEP -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                  <div class="form-group" style="width: 60%;">
+                                    <div style="float:left; width:30%">
+                                      <input type="text" name="UF" class="form-control" id="UF" placeholder="UF" data-rule="minlen:4" maxlength="2" data-msg="UF!" required>
+                                    </div>
+                                    <div style="float:left; width:70%">
+                                      <input type="tel" name="CEP" class="form-control" id="CEP" placeholder="CEP" data-rule="minlen:4" data-msg="Insira seu CEP!" maxlength="8" required> 
+                                    </div> 
+                                  </div>
+                                    
+                              </div>
+                      </div>
+                      <!-- END UF - CEP -->
+                      <div style="text-align:center;margin-top: 10px; margin-bottom: 10px"><strong>--------------- Contatos ---------------</strong></div>
+                      <!-- TELEFONEs -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                <div class="form-group" style="width:100%">
+                                    <div style="float:left; width:50%">
+                                      <label class="input-group-text" for="inputGroupSelect01">DDD + Telefone 1 <span style="color:crimson">*Apenas números</span></label>
+                                      <input type="tel" name="FONE1" class="form-control" id="FONE1" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!" required>
+                                    </div>
+                                    <div style="float:left; width:50%">
+                                        <label class="input-group-text" for="inputGroupSelect01">DDD + Telefone 2 <span style="color:crimson">*Apenas números</span></label>
+                                      <input type="tel" name="FONE2" class="form-control" id="FONE2" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!">
+                                    </div>
+                                </div>   
+                              </div>
+                      </div>
+                      <!-- END TELEFONEs --> 
+                      <!-- E-MAIL -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                <div class="form-group">
+                                  <input type="email" name="EMAIL" class="form-control" id="EMAIL" placeholder="E-mail" data-rule="minlen:4" data-msg="Insira seu e-mail!">
+                                </div>
+                              </div>
+                      </div>
+                      <!-- END E-MAIL --> 
+                      <div style="text-align:center;margin-top: 10px; margin-bottom: 10px"><strong>--------------- Pessoa para contato ---------------</strong></div>
+                      <!-- PESSOA P CONTATO -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                  <div class="form-group" style="width:100%">
+                                    <div style="float:left; width:55%">
+                                      <label class="input-group-text" for="inputGroupSelect01">Nome</label>
+                                      <input type="text" name="N_FONECT" class="form-control" id="N_FONECT" placeholder="Nome do Contato" data-msg="Insira seu telefone!">
+                                    </div>
+                                    <div style="float:left; width:45%">
+                                      <label class="input-group-text" for="inputGroupSelect01" style="white-space: normal"><span style="color:crimson">*Apenas números</span></label>
+                                        <input type="tel" name="FONECT" class="form-control" id="FONECT" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!" required>
+                                    </div>
+                                  </div>
+                              </div>
+                      </div>
+                      <!-- END PESSOA P CONTATO --> 
+                      <div style="text-align:center;margin-top: 10px; margin-bottom: 10px"><strong>--------------- Informações Ministeriais ---------------</strong></div>
+                      <!-- TELEFONEs -->
+                      <div class="row rowForm">
+                              <div class="col-md-9">
+                                <div class="form-group" style="width:100%">
+                                    <div style="float:left; width:50%">
+                                      <div>
+                                        <label class="input-group-text" for="inputGroupSelect01">IGREJA</label>
+                                      </div>
+                                      <div>
+                                        <select class="custom-select" id="inputGroupSelect02" name="IGREJA" required>
+                                          <option value="">........Selecione...........</option>
+                                          <option value="1">ADVC-SEDE</option>
+                                          <option value="2">ADVC-CRUZ</option>
+                                        </select>
+                                      </div>
+                                      
+                                    </div>
+                                    <div style="float:left; width:50%">
+                                      <div>
+                                        <label class="input-group-text" for="inputGroupSelect01">FUNÇÃO ECLESIÁSTICA</label>
+                                      </div>  
+                                      <div>
+                                        <select class="custom-select" id="inputGroupSelect02" name="FUNCECLES" required>
+                                          <option value="">........Selecione...........</option>
+                                          <option value="1">CONGREGADO</option>
+                                          <option value="2">MEMBRO</option>
+                                          <option value="3">AUXILIAR</option>
+                                          <option value="4">DIÁCONO</option>
+                                          <option value="5">PRESBÍTERO</option>
+                                          <option value="6">EVANGELISTA</option>
+                                          <option value="7">PASTOR</option>
+                                        </select>
+                                      </div>    
+                                    </div>
+                                </div>   
+                              </div>
+                      </div>
+                      <!-- END TELEFONEs -->
               </form>
 <!-- END FORM -->
                     
@@ -226,185 +437,23 @@ $membroC = new MembroController();
                       <div class="row mt">
                         <div class="">
 
+
+                           
+
+                      
+
+
                             
 
-                            <!-- CPF -->
-                            <div class="form-group" style="width:70%">
-                                <div style="float:left;width:80%">
-                                    <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="CPF (Só número)" data-rule="minlen:4" data-msg="Insira seu número de CPF!" maxlength="11" required>
-                                </div>
-                            </div>
-                            <br><br>
-
-                            <!-- TITULO -->
-                            <div class="form-group" style="width:100%" >
-                                <div style="float:left;width:60%">
-                                    <input type="tel" name="TIT_NUM" class="form-control" id="TIT_NUM" placeholder="Título (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="12">
-                                </div>
-                                <div style="float:right;width:20%">
-                                    <input type="tel" name="TIT_SEC" class="form-control" id="TIT_SEC" placeholder="Seção" data-rule="maxlen:4" data-msg="Seção do Título!" maxlength="4">
-                                </div>
-                                <div style="float:right;width:20%">
-                                    <input type="tel" name="TIT_ZONA" class="form-control" id="TIT_ZONA" placeholder="Zona" data-rule="maxlen:3" data-msg="Zona do Título!" maxlength="3">
-                                </div>
-                            </div>
-                            <br><br>
-
-                            <!-- CNH -->
-                            <div class="form-group" style="width:70%">
-                                <div style="float:left;width:80%">
-                                    <input type="tel" name="CNH" class="form-control" id="CNH" placeholder="CNH (Só números)" data-rule="minlen:12" data-msg="Insira seu número de CNH!" maxlength="12">
-                                </div>
-                                <div style="float:right;width:20%">
-                                    <input type="text" name="CAT_CNH" class="form-control" id="CAT_CNH" placeholder="Categ." data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" >
-                                </div>
-                            </div>
-                            <br><br><br>
-
-
-                            <!-- Escolaridade -->
                             
-                            <div class="input-group mb-6">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Escolaridade</label>
-                              </div>
-                              <select class="custom-select" id="inputGroupSelect02" name="ESC" required>
-                                <option value="">........Selecione...........</option>
-                                <option value="0">ALFABETIZAÇÃO</option>
-                                <option value="1">FUNDAMENTAL - INCOMPLETO</option>
-                                <option value="2">FUNDAMENTAL - COMPLETO</option>
-                                <option value="3">MÉDIO - INCOMPLETO</option>
-                                <option value="4">MÉDIO - COMPLETO</option>
-                                <option value="5">SUPERIOR - INCOMPLETO</option>
-                                <option value="6">SUPERIOR - COMPLETO</option>
-                                <option value="7">ESPECIALIZAÇÃO - INCOMPLETO</option>
-                                <option value="8">ESPECIALIZAÇÃO - COMPLETO</option>
-                                <option value="9">MESTRADO - INCOMPLETO</option>
-                                <option value="10">MESTRADO - COMPLETO</option>
-                                <option value="11">DOUTORADO - INCOMPLETO</option>
-                                <option value="12">DOUTORADO - COMPLETO</option>
-                                <option value="13">PÓS-DOUTORADO - INCOMPLETO</option>
-                                <option value="14">PÓS-DOUTORADO - COMPLETO</option>
-
-
-                              </select>
-                            </div>
-                            <br>
-                            <!-- Profissão -->
-                            <div class="form-group">
-                              <input type="text" name="PROF" class="form-control" id="PROF" placeholder="Profissão" data-rule="minlen:4" data-msg="Insira sua profissão!" required>
-                            </div>
-
-                            <div style="text-align:center"><strong>--------------- Endereço e contatos ---------------</strong></div><br>
-
-                            <!-- ENDEREÇO -->
-                            <div class="form-group">
-                              <input type="text" name="ENDERECO" class="form-control" id="ENDERECO" placeholder="Endereço" data-rule="minlen:4" data-msg="Insira seu endereço!" required>
-                            </div>
-
-                            <!-- COMPLEMENTO DO ENDEREÇO -->
-                            <div class="form-group">
-                              <input type="text" name="COMP_END" class="form-control" id="COMP_END" placeholder="Complemento / Ponto de Referência" data-rule="minlen:4" data-msg="Complemento de Endereço!">
-                            </div>
-
-                            <!-- BAIRRO/CIDADE -->
-                            <div class="form-group" style="width:100%">
-                              <div style="float:left; width:50%">
-                                <input type="text" name="BAIRRO" class="form-control" id="BAIRRO" placeholder="Bairro" data-rule="minlen:4" data-msg="Insira seu bairro!" required>
-                              </div>
-                              <div style="float:left; width:50%">
-                                <input type="text" name="CIDADE" class="form-control" id="CIDADE" placeholder="Cidade" data-rule="minlen:4" data-msg="Insira sua cidade!" required>
-                              </div>
-                            </div>
-                            <!-- UF e CEP -->
-                            <br><br><br>
-                            <div class="form-group" style="width: 60%;">
-                              <div style="float:left; width:30%">
-                                <input type="text" name="UF" class="form-control" id="UF" placeholder="UF" data-rule="minlen:4" maxlength="2" data-msg="UF!" required>
-                              </div>
-                              <div style="float:right; width:70%">
-                                <input type="tel" name="CEP" class="form-control" id="CEP" placeholder="CEP" data-rule="minlen:4" data-msg="Insira seu CEP!" maxlength="8" required> 
-                              </div> 
-                            </div>
-                            <br>
-                            <br>
-
-                            <!-- TELEFONEs -->
-                            <div class="form-group" style="width:100%">
-                              <div style="float:left; width:50%">
-                                <label class="input-group-text" for="inputGroupSelect01">DDD + Telefone 1 <span style="color:crimson">*Apenas números</span></label>
-                                <input type="tel" name="FONE1" class="form-control" id="FONE1" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!" required>
-                              </div>
-                              <div style="float:left; width:50%">
-                                  <label class="input-group-text" for="inputGroupSelect01">DDD + Telefone 2 <span style="color:crimson">*Apenas números</span></label>
-                                <input type="tel" name="FONE2" class="form-control" id="FONE2" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!">
-                              </div>
-                            </div>
-
-                            <br><br><br>
-                            <!-- EMAIL -->
-                            <div class="form-group">
-                              <input type="email" name="EMAIL" class="form-control" id="EMAIL" placeholder="E-mail" data-rule="minlen:4" data-msg="Insira seu e-mail!">
-                            </div>
-
-                            <!-- Contato -->
                             
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Pessoa para contato</label>
-                              </div>
-                            <div class="form-group" style="width:100%">
 
-                              <div style="float:left; width:55%">
-                                <label class="input-group-text" for="inputGroupSelect01">Nome</label>
-                                <input type="text" name="N_FONECT" class="form-control" id="N_FONECT" placeholder="Nome do Contato" data-msg="Insira seu telefone!">
-                              </div>
-                              <div style="float:left; width:45%">
-                                <label class="input-group-text" for="inputGroupSelect01" style="white-space: normal"><span style="color:crimson">*Apenas números</span></label>
-                                  <input type="tel" name="FONECT" class="form-control" id="FONECT" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!" required>
-                              </div>
-                            </div>
 
-                            <br><br><br><br><div style="text-align:center"><strong>--------------- Informações ministeriais ---------------</strong></div>
+                    
 
-                            <!-- IGREJA -->
                             
-                            <div class="input-group mb-6">
-                              <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">IGREJA</label>
-                              </div>
-                              <select class="custom-select" id="inputGroupSelect02" name="IGREJA" required>
-                                <option value="">........Selecione...........</option>
-                                <option value="1">ADVC-SEDE</option>
-                                <option value="2">ADVC-CRUZ</option>
-                              </select>
-                            </div>
 
-                            <br>
                             
-                            <div class="form-group">
-
-                                  <!-- FUNÇÃO ECLESIÁSTICA -->
-                            
-                                    <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <label class="input-group-text" for="inputGroupSelect01">FUNÇÃO ECLESIÁSTICA</label>
-                                      </div>
-                                      <select class="custom-select" id="inputGroupSelect02" name="FUNCECLES" required>
-                                        <option value="">........Selecione...........</option>
-                                        <option value="1">CONGREGADO</option>
-                                        <option value="2">MEMBRO</option>
-                                        <option value="3">AUXILIAR</option>
-                                        <option value="4">DIÁCONO</option>
-                                        <option value="5">PRESBÍTERO</option>
-                                        <option value="6">EVANGELISTA</option>
-                                        <option value="7">PASTOR</option>
-                                      </select>
-                                    </div>
-
-
-                            </div>
-                            <br>
-
                             <div class="form-group" style="width:100%">
                               
                               <div style="float:left;width:50%">
@@ -451,7 +500,20 @@ $membroC = new MembroController();
                               </div>
                             </div>
                             <br><br><br>
-
+                            <ul class="nav nav-tabs">
+                              <li class="nav-item">
+                                <a class="nav-link active" href="#">Ativo</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Desativado</a>
+                              </li>
+                            </ul>
                             <!-- RECEPÇÃO -->
                             
                             <div class="input-group">
