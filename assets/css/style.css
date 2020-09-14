@@ -3522,8 +3522,20 @@ ul.chat-available-user li a:hover {
     padding-left: 60px;
     padding-right: 50px;
 }
+.sc_form {
+    padding-left: 20px;
+    padding-right: 10px;
+    line-height: 10px;
+}
 
 /*row do Form*/
 .rowForm {
     padding-bottom: 8px;
+}
+.pd-30 {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+input[type="date"].form-control {
+    line-height: 10px;
 }

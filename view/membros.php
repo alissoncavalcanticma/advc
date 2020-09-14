@@ -40,15 +40,15 @@ $membroC = new MembroController();
             <div class="col-lg-12">
               <div class="content-panel">
               
-              <div class="row sc" style="width:100%">
+              <div class="row sc_form" style="width:100%">
                   <div style="float:left;width:50%">
                     <h4>Membros </h4>
                   </div>
                   <div style="float:right;width:50%">
                     <div style="float:right">
-                      <h4>
-                        <button class="btn btn-success" onclick="window.location.href='cadMembros.php'">ADD</button>
-                      </h4>
+                      
+                        <button class="btn btn-success" onclick="window.location.href='cadMembros.php'"><i class="fa fa-plus"></i></button>
+                      
                     </div>
                   </div>
               </div>

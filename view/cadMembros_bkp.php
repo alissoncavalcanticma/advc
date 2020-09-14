@@ -61,7 +61,7 @@ $membroC = new MembroController();
                     <div class="row rowForm">
                         <div class="col-md-9">
                             <label class="input-group-text" for="inputGroupSelect01">Nome:</label>
-                            <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!">
+                            <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!" required>
                         </div>
                     </div>
                 <!-- END NOME -->
@@ -70,11 +70,11 @@ $membroC = new MembroController();
                         <div class="col-md-2">
                                 <label class="input-group-text" for="inputGroupSelect01">Sexo:</label>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio1" value="M" >
+                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio1" value="M" required>
                                   <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio2" value="F" >
+                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio2" value="F" required>
                                   <label class="form-check-label" for="inlineRadio2">Feminino</label>
                                 </div>
                         </div>
@@ -85,7 +85,7 @@ $membroC = new MembroController();
                         <div class="col-md-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Data de nascimento:</label>
                                 <div class='input-group date' id='datetimepicker10'>
-                                    <input class="form-control" size="16" type="date" name="NASC" id="NASC" placeholder="ex: 19/02/1990">
+                                    <input class="form-control" size="16" type="date" name="NASC" id="NASC" value="" placeholder="ex: 19/02/1990" required>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar">
                                             </span>
@@ -100,10 +100,10 @@ $membroC = new MembroController();
                                 <label class="input-group-text" for="inputGroupSelect01">Naturalidade:</label>
                                 <div class="form-group" style="width:100%">
                                     <div style="float:left;width:80%">
-                                      <input type="text" name="NAT" class="form-control" id="NAT" placeholder="Naturalidade (Cidade)" data-rule="naturalidade" data-msg="Informe sua naturalidade!" >
+                                      <input type="text" name="NAT" class="form-control" id="NAT" placeholder="Naturalidade (Cidade)" data-rule="naturalidade" data-msg="Informe sua naturalidade!" required>
                                     </div>
                                     <div style="float:right;width:13%">
-                                          <input type="text" name="NAT_UF" class="form-control" id="NAT_UF" placeholder="UF" data-rule="maxlen:2" data-msg="UF" maxlength="2">
+                                          <input type="text" name="NAT_UF" class="form-control" id="NAT_UF" placeholder="UF" data-rule="maxlen:2" data-msg="UF" maxlength="2" required>
                                     </div>
                                 </div>
                         </div>
@@ -114,7 +114,7 @@ $membroC = new MembroController();
                         <div class="col-md-9">
                                 <label class="input-group-text" for="inputGroupSelect01">Nacionalidade:</label>
                                 <div class="form-group">
-                                  <input type="text" name="NAC" class="form-control" id="NAC" placeholder="Nacionalidade" data-rule="nacionalidade" data-msg="Informe sua nacionalidade!">
+                                  <input type="text" name="NAC" class="form-control" id="NAC" placeholder="Nacionalidade" data-rule="nacionalidade" data-msg="Informe sua nacionalidade!" required>
                                 </div>
                         </div>
                       </div>
@@ -124,12 +124,12 @@ $membroC = new MembroController();
                         <div class="col-md-9">
                               <label class="input-group-text" for="inputGroupSelect01">Estado Civil</label>
                               <div class="form-group">
-                                <select class="custom-select" id="inputGroupSelect02" name="ESTCV">
+                                <select class="custom-select" id="inputGroupSelect02" name="ESTCV" required>
                                     <option value="">........Selecione...........</option>
                                     <option value="SOLTEIRO">Solteiro(a)</option>
                                     <option value="CASADO">Casado(a)</option>
                                     <option value="DIVORCIADO">Divórciado(a)</option>
-                                    <option value="VIUVO">Viúvo(a)</option>
+                                    <option value="VIUDO">Viúvo(a)</option>
                                     <option value="OUTROS">Outros</option>
                                 </select>
                               </div>
@@ -170,7 +170,7 @@ $membroC = new MembroController();
                         <div class="col-md-9">
                               <label class="input-group-text" for="inputGroupSelect01">Mãe:</label>
                               <div class="form-group">
-                                <input type="text" name="MAE" class="form-control" id="MAE" placeholder="Nome da Mãe" data-rule="minlen:4" data-msg="Insira o nome da sua mãe!" >
+                                <input type="text" name="MAE" class="form-control" id="MAE" placeholder="Nome da Mãe" data-rule="minlen:4" data-msg="Insira o nome da sua mãe!" required>
                               </div>
                               
                         </div>
@@ -196,10 +196,10 @@ $membroC = new MembroController();
                                     <label class="input-group-text" for="inputGroupSelect01"">RG:</label>
                                   </div>
                                   <div style="float:left;width:78%">
-                                      <input type="tel" name="RG" class="form-control" id="RG" placeholder="RG (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="7">
+                                      <input type="tel" name="RG" class="form-control" id="RG" placeholder="RG (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="7" required>
                                   </div>
                                   <div style="float:right;width:20%">
-                                      <input type="text" name="UF_RG" class="form-control" id="UF_RG" placeholder="UF" data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2">
+                                      <input type="text" name="UF_RG" class="form-control" id="UF_RG" placeholder="UF" data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" required>
                                   </div>
                               </div>
 
@@ -210,7 +210,7 @@ $membroC = new MembroController();
                                   </div>
                                   <div class="form-group" style="width:100%">
                                     <div style="float:left;width:100%">
-                                        <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="CPF (Só número)" data-rule="minlen:4" data-msg="Insira seu número de CPF!" maxlength="11">
+                                        <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="CPF (Só número)" data-rule="minlen:4" data-msg="Insira seu número de CPF!" maxlength="11" required>
                                     </div>
                                   </div>
                               </div>
@@ -260,7 +260,7 @@ $membroC = new MembroController();
                                         <label class="input-group-text" for="inputGroupSelect01">Escolaridade:</label>
                                       </div> 
                                       <div>
-                                          <select class="custom-select" id="inputGroupSelect02" name="ESC">
+                                          <select class="custom-select" id="inputGroupSelect02" name="ESC" required>
                                                   <option value="">........Selecione...........</option>
                                                   <option value="0">ALFABETIZAÇÃO</option>
                                                   <option value="1">FUNDAMENTAL - INCOMPLETO</option>
@@ -286,7 +286,7 @@ $membroC = new MembroController();
                                         <label class="input-group-text" for="inputGroupSelect01">Profissão:</label>
                                       </div>    
                                       <div>      
-                                        <input type="text" name="PROF" class="form-control" id="PROF" placeholder="Profissão" data-rule="minlen:4" data-msg="Insira sua profissão!">
+                                        <input type="text" name="PROF" class="form-control" id="PROF" placeholder="Profissão" data-rule="minlen:4" data-msg="Insira sua profissão!" required>
                                       </div>
                                   </div>
                             </div>   
@@ -299,7 +299,7 @@ $membroC = new MembroController();
                                     <label class="input-group-text" for="inputGroupSelect01">Endereço:</label>
                                     <div class="form-group" style="width:100%">
                                     <div class="form-group">
-                                      <input type="text" name="ENDERECO" class="form-control" id="ENDERECO" placeholder="Endereço" data-rule="minlen:4" data-msg="Insira seu endereço!">
+                                      <input type="text" name="ENDERECO" class="form-control" id="ENDERECO" placeholder="Endereço" data-rule="minlen:4" data-msg="Insira seu endereço!" required>
                                     </div>
                                     </div>
                                     
@@ -323,10 +323,10 @@ $membroC = new MembroController();
                               <div class="col-md-9">
                                 <div class="form-group" style="width:100%">
                                   <div style="float:left; width:50%">
-                                    <input type="text" name="BAIRRO" class="form-control" id="BAIRRO" placeholder="Bairro" data-rule="minlen:4" data-msg="Insira seu bairro!">
+                                    <input type="text" name="BAIRRO" class="form-control" id="BAIRRO" placeholder="Bairro" data-rule="minlen:4" data-msg="Insira seu bairro!" required>
                                   </div>
                                   <div style="float:left; width:50%">
-                                    <input type="text" name="CIDADE" class="form-control" id="CIDADE" placeholder="Cidade" data-rule="minlen:4" data-msg="Insira sua cidade!">
+                                    <input type="text" name="CIDADE" class="form-control" id="CIDADE" placeholder="Cidade" data-rule="minlen:4" data-msg="Insira sua cidade!" required>
                                   </div>
                                 </div>
                                     
@@ -338,10 +338,10 @@ $membroC = new MembroController();
                               <div class="col-md-9">
                                   <div class="form-group" style="width: 60%;">
                                     <div style="float:left; width:30%">
-                                      <input type="text" name="UF" class="form-control" id="UF" placeholder="UF" data-rule="minlen:4" maxlength="2" data-msg="UF!">
+                                      <input type="text" name="UF" class="form-control" id="UF" placeholder="UF" data-rule="minlen:4" maxlength="2" data-msg="UF!" required>
                                     </div>
                                     <div style="float:left; width:70%">
-                                      <input type="tel" name="CEP" class="form-control" id="CEP" placeholder="CEP" data-rule="minlen:4" data-msg="Insira seu CEP!" maxlength="8"> 
+                                      <input type="tel" name="CEP" class="form-control" id="CEP" placeholder="CEP" data-rule="minlen:4" data-msg="Insira seu CEP!" maxlength="8" required> 
                                     </div> 
                                   </div>
                                     
@@ -355,7 +355,7 @@ $membroC = new MembroController();
                                 <div class="form-group" style="width:100%">
                                     <div style="float:left; width:50%">
                                       <label class="input-group-text" for="inputGroupSelect01">DDD + Telefone 1 <span style="color:crimson">*Apenas números</span></label>
-                                      <input type="tel" name="FONE1" class="form-control" id="FONE1" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!">
+                                      <input type="tel" name="FONE1" class="form-control" id="FONE1" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!" required>
                                     </div>
                                     <div style="float:left; width:50%">
                                         <label class="input-group-text" for="inputGroupSelect01">DDD + Telefone 2 <span style="color:crimson">*Apenas números</span></label>
@@ -385,7 +385,7 @@ $membroC = new MembroController();
                                     </div>
                                     <div style="float:left; width:45%">
                                       <label class="input-group-text" for="inputGroupSelect01" style="white-space: normal"><span style="color:crimson">*Apenas números</span></label>
-                                        <input type="tel" name="FONECT" class="form-control" id="FONECT" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!">
+                                        <input type="tel" name="FONECT" class="form-control" id="FONECT" placeholder="ex: 81988776655" maxlength="11" data-rule="minlen:4" data-msg="Insira seu telefone!" required>
                                     </div>
                                   </div>
                               </div>
@@ -401,7 +401,7 @@ $membroC = new MembroController();
                                         <label class="input-group-text" for="inputGroupSelect01">IGREJA</label>
                                       </div>
                                       <div>
-                                        <select class="custom-select" id="inputGroupSelect02" name="IGREJA">
+                                        <select class="custom-select" id="inputGroupSelect02" name="IGREJA" required>
                                           <option value="">................... Selecione .....................</option>
                                           <option value="1">ADVC-SEDE</option>
                                           <option value="2">ADVC-CRUZ</option>
@@ -416,7 +416,7 @@ $membroC = new MembroController();
                                             <label class="input-group-text" for="inputGroupSelect01"> RECEPÇÃO </label>
                                         </div>
                                         <div>
-                                          <select class="custom-select" id="inputGroupSelect02" name="RECEPCAO">
+                                          <select class="custom-select" id="inputGroupSelect02" name="RECEPCAO" required>
                                             <option value="">................... Selecione .....................</option>
                                             <option value="1">BATISMO</option>
                                             <option value="2">ACLAMAÇÃO</option>
@@ -437,7 +437,7 @@ $membroC = new MembroController();
                                         <label class="input-group-text" for="inputGroupSelect01">FUNÇÃO ECLESIÁSTICA</label>
                                       </div>  
                                       <div>
-                                        <select class="custom-select" id="inputGroupSelect02" name="FUNCECLES">
+                                        <select class="custom-select" id="inputGroupSelect02" name="FUNCECLES" required>
                                           <option value="">................... Selecione .....................</option>
                                           <option value="1">CONGREGADO</option>
                                           <option value="2">MEMBRO</option>
@@ -514,7 +514,7 @@ $membroC = new MembroController();
                                         </div>
                                         <div class="form-group" style="width:100%">
                                                 <div class='input-group date' id='datetimepicker10'>
-                                                <input class="form-control" size="16" type="date" name="CV" id="CV" placeholder="ex: 19/02/1990">
+                                                <input class="form-control" size="16" type="date" name="CV" id="CV" value="" placeholder="ex: 19/02/1990">
                                                     <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar">
                                                         </span>

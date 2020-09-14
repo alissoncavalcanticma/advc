@@ -86,6 +86,71 @@ class Membro{
 		return $fe;
 		//echo $funcecles;die("oi");
 	}
+	public function insert($nome, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat){
+
+		//$sql = "INSERT INTO MEMBROS (NOME, SEXO, NASC, NAT, NAT_UF, NAC, ESTCV, ESC, PROF, RG, UF_RG, CPF, CNH, CAT_CNH, TIT_NUM, TIT_ZONA, TIT_SEC, MAE, PAI, CONJUGE, DT_CASAMENTO, ENDERECO, COMP_END, BAIRRO, CIDADE, CEP, UF, FONE1, FONE2, FONECT, N_FONECT, EMAIL, IGREJA, FUNCECLES, FUNCADM, FUNCADM2, SITUACAO, RECEPCAO, CV, BAT) VALUES ('$nome', '$sexo', '$nasc', '$nat', '$nat_uf', '$nac', '$estcv', '$esc', '$prof', '$rg', '$uf_rg', '$cpf', '$cnh', '$cat_cnh', '$tit_num', '$tit_zona', '$tit_sec', '$mae', '$pai', '$conjuge', '$dt_casamento', '$endereco', '$comp_end', '$bairro', '$cidade', '$cep', '$uf', '$fone1', '$fone2', '$fonect', '$n_fonect', '$email', '$igreja', '$funcecles', '$funcadm', '$funcadm2', '$recepcao', '$cv', '$bat')";
+		$nasc = !empty($nasc) ? "NASC = '$nasc'," : '';
+		$dt_casamento = !empty($dt_casamento) ? "DT_CASAMENTO = '$dt_casamento'," : '';
+		$cv = !empty($cv) ? ",CV = '$cv'" : '';
+		$bat = !empty($bat) ? ",BAT = '$bat'" : '';
+
+		//echo $nasc, $dt_casamento, $cv, $bat; die();
+		$sql = "INSERT INTO 
+					MEMBROS
+				SET
+					NOME 			= '$nome',
+					SEXO 			= '$sexo',
+					".$nasc."
+					NAT  			= '$nat',
+					NAT_UF 			= '$nat_uf',
+					NAC 			= '$nac',
+					ESTCV 			= '$estcv',
+					ESC 			= '$esc',
+					PROF 			= '$prof',
+					RG 				= '$rg',
+					UF_RG 			= '$uf_rg',
+					CPF 			= '$cpf',
+					CNH				= '$cnh',
+					CAT_CNH			= '$cat_cnh',
+					TIT_NUM			= '$tit_num',
+					TIT_ZONA		= '$tit_zona',
+					TIT_SEC			= '$tit_sec',
+					MAE				= '$mae',
+					PAI				= '$pai',
+					CONJUGE			= '$conjuge',
+					". $dt_casamento."
+					ENDERECO		= '$endereco',
+					COMP_END		= '$comp_end',
+					BAIRRO			= '$bairro',
+					CIDADE			= '$cidade',
+					CEP				= '$cep',
+					UF				= '$uf',
+					FONE1			= '$fone1',
+					FONE2			= '$fone2',
+					FONECT			= '$fonect',
+					N_FONECT		= '$n_fonect',
+					EMAIL			= '$email',
+					IGREJA			= '$igreja',
+					FUNCECLES		= '$funcecles',
+					FUNCADM			= '$funcadm',
+					FUNCADM2		= '$funcadm2',
+					RECEPCAO		= '$recepcao'
+					";
+					
+
+		/*echo $nome.','.$sexo.','.$nasc.','.$nat.','.$nat_uf.','.$nac.','.$estcv.','.$esc.','.$prof.',
+		'.$rg.','.$uf_rg.','.$cpf.','.$cnh.','.$cat_cnh.','.$tit_num.','.$tit_zona.','.$tit_sec.',
+		'.$mae.','.$pai.','.$conjuge.','.$dt_casamento.','.$endereco.','.$comp_end.','.$bairro.','.$cidade.',
+		'.$cep.','.$uf.','.$fone1.','.$fone2.','.$fonect.','.$n_fonect.','.$email.','.$igreja.','.$funcecles.',
+		'.$funcadm.','.$funcadm2.','.$recepcao.','.$cv.','.$bat; die();
+		
+		//*/
+		//echo $nasc;die();
+		
+		$sql = $this->pdo->prepare($sql);
+		//$sql->bindParam(":nasc", !empty($nasc) ? $nasc : null, PDO::PARAM_INT);
+		$sql->execute();
+	}
 }
 /*
 include '../autoload.php';
