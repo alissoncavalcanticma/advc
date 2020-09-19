@@ -14,6 +14,10 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
 
 $membroC = new MembroController();
 
+if(isset($_GET['id']) && !empty($_GET['id'])){
+  $_M = $membroC->listaMembros();
+}
+
 
 
 ?>
@@ -21,7 +25,7 @@ $membroC = new MembroController();
 <?php include_once 'header.php'; ?>
 <!--header end-->
 
-<link href="../assets/css/table-responsive.css" rel="stylesheet">
+
 
     <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
@@ -54,6 +58,8 @@ $membroC = new MembroController();
               </div>
               
               <section class="sc" id="unseen">
+<!-- MSG -->
+             <?= $_GET['display'] ? "<div style=display:".$_GET['display'].";margin-bottom:20px>Cadastro inserido!</div>" : "" ?>
 <!-- FORM -->
               <form action="../controller/MembroController.class.php?acao=insert" method="post">
               <div style="text-align:left;margin-bottom: 10px"><strong> >> Informações principais ---------------------------------------------------------------</strong></div>
@@ -61,7 +67,7 @@ $membroC = new MembroController();
                     <div class="row rowForm">
                         <div class="col-md-9">
                             <label class="input-group-text" for="inputGroupSelect01">Nome:</label>
-                            <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!">
+                            <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!" required>
                         </div>
                     </div>
                 <!-- END NOME -->
@@ -70,11 +76,11 @@ $membroC = new MembroController();
                         <div class="col-md-2">
                                 <label class="input-group-text" for="inputGroupSelect01">Sexo:</label>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio1" value="M" >
+                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio1" value="M" required>
                                   <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio2" value="F" >
+                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio2" value="F" required>
                                   <label class="form-check-label" for="inlineRadio2">Feminino</label>
                                 </div>
                         </div>
@@ -85,7 +91,7 @@ $membroC = new MembroController();
                         <div class="col-md-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Data de nascimento:</label>
                                 <div class='input-group date' id='datetimepicker10'>
-                                    <input class="form-control" size="16" type="date" name="NASC" id="NASC" placeholder="ex: 19/02/1990">
+                                    <input class="form-control" size="16" type="date" name="NASC" id="NASC" placeholder="ex: 19/02/1990" required>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar">
                                             </span>
@@ -401,7 +407,7 @@ $membroC = new MembroController();
                                         <label class="input-group-text" for="inputGroupSelect01">IGREJA</label>
                                       </div>
                                       <div>
-                                        <select class="custom-select" id="inputGroupSelect02" name="IGREJA">
+                                        <select class="custom-select" id="inputGroupSelect02" name="IGREJA" required>
                                           <option value="">................... Selecione .....................</option>
                                           <option value="1">ADVC-SEDE</option>
                                           <option value="2">ADVC-CRUZ</option>

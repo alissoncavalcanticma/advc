@@ -86,9 +86,9 @@ $membroC = new MembroController();
                               <td class="numeric"><?= $_M['EMAIL']; ?></td>
                               <td class="numeric"><?= $membroC->retornaFuncEcles($_M['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
                               <td class="numeric"><?= $_M['SITUACAO']; ?></td>
-                              <td class="numeric">
-                                  <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button>
-                                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                              <td class="numeric" style="text-align: center;">
+                                  <!-- <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button> -->
+                                  <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=edit&id=<?= $_M['ID'] ?>'"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                               </td>
                           </tr>
