@@ -14,10 +14,6 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
 
 $membroC = new MembroController();
 
-if(isset($_GET['id']) && !empty($_GET['id'])){
-  $_M = $membroC->listaMembros();
-}
-
 
 
 ?>
@@ -67,7 +63,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                     <div class="row rowForm">
                         <div class="col-md-9">
                             <label class="input-group-text" for="inputGroupSelect01">Nome:</label>
-                            <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!" required>
+                            <input type="text" name="NOME" class="form-control" id="NOME" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Insira seu nome!" value="<?= isset($_GET['NOME']) ? $_GET['NOME'] : "" ?>" required>
                         </div>
                     </div>
                 <!-- END NOME -->
@@ -76,11 +72,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         <div class="col-md-2">
                                 <label class="input-group-text" for="inputGroupSelect01">Sexo:</label>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio1" value="M" required>
+                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio1" value="M" <?= isset($_GET['SEXO']) && $_GET['SEXO'] == 'M' ? 'checked' : '' ?> required>
                                   <label class="form-check-label" for="inlineRadio1">Masculino</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio2" value="F" required>
+                                  <input class="form-check-input" type="radio" name="SEXO" id="inlineRadio2" value="F" <?= isset($_GET['SEXO']) && $_GET['SEXO'] == 'F' ? 'checked' : '' ?> required>
                                   <label class="form-check-label" for="inlineRadio2">Feminino</label>
                                 </div>
                         </div>
@@ -91,7 +87,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         <div class="col-md-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Data de nascimento:</label>
                                 <div class='input-group date' id='datetimepicker10'>
-                                    <input class="form-control" size="16" type="date" name="NASC" id="NASC" placeholder="ex: 19/02/1990" required>
+                                    <input class="form-control" size="16" type="date" name="NASC" id="NASC" placeholder="ex: 19/02/1990" value="<?= isset($_GET['NASC']) ? $_GET['NASC'] : "" ?>" required>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar">
                                             </span>
@@ -106,10 +102,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                 <label class="input-group-text" for="inputGroupSelect01">Naturalidade:</label>
                                 <div class="form-group" style="width:100%">
                                     <div style="float:left;width:80%">
-                                      <input type="text" name="NAT" class="form-control" id="NAT" placeholder="Naturalidade (Cidade)" data-rule="naturalidade" data-msg="Informe sua naturalidade!" >
+                                      <input type="text" name="NAT" class="form-control" id="NAT" placeholder="Naturalidade (Cidade)" data-rule="naturalidade" data-msg="Informe sua naturalidade!" value="<?= isset($_GET['NAT']) ? $_GET['NAT'] : "" ?>" >
                                     </div>
                                     <div style="float:right;width:13%">
-                                          <input type="text" name="NAT_UF" class="form-control" id="NAT_UF" placeholder="UF" data-rule="maxlen:2" data-msg="UF" maxlength="2">
+                                          <input type="text" name="NAT_UF" class="form-control" id="NAT_UF" placeholder="UF" data-rule="maxlen:2" data-msg="UF" maxlength="2" value="<?= isset($_GET['NAT_UF']) ? $_GET['NAT_UF'] : "" ?>">
                                     </div>
                                 </div>
                         </div>
@@ -120,7 +116,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         <div class="col-md-9">
                                 <label class="input-group-text" for="inputGroupSelect01">Nacionalidade:</label>
                                 <div class="form-group">
-                                  <input type="text" name="NAC" class="form-control" id="NAC" placeholder="Nacionalidade" data-rule="nacionalidade" data-msg="Informe sua nacionalidade!">
+                                  <input type="text" name="NAC" class="form-control" id="NAC" placeholder="Nacionalidade" data-rule="nacionalidade" data-msg="Informe sua nacionalidade!" value="<?= isset($_GET['NAC']) ? $_GET['NAC'] : "" ?>">
                                 </div>
                         </div>
                       </div>
@@ -132,11 +128,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                               <div class="form-group">
                                 <select class="custom-select" id="inputGroupSelect02" name="ESTCV">
                                     <option value="">........Selecione...........</option>
-                                    <option value="SOLTEIRO">Solteiro(a)</option>
-                                    <option value="CASADO">Casado(a)</option>
-                                    <option value="DIVORCIADO">Divórciado(a)</option>
-                                    <option value="VIUVO">Viúvo(a)</option>
-                                    <option value="OUTROS">Outros</option>
+                                    <option value="SOLTEIRO" <?= isset($_GET['ESTCV']) && $_GET['ESTCV'] === 'SOLTEIRO' ? 'selected' : '' ?>>Solteiro(a)</option>
+                                    <option value="CASADO" <?= isset($_GET['ESTCV']) && $_GET['ESTCV'] === 'CASADO' ? 'selected' : '' ?>>Casado(a)</option>
+                                    <option value="DIVORCIADO" <?= isset($_GET['ESTCV']) && $_GET['ESTCV'] === 'DIVORCIADO' ? 'selected' : '' ?>>Divórciado(a)</option>
+                                    <option value="VIUVO" <?= isset($_GET['ESTCV']) && $_GET['ESTCV'] === 'VIUVO' ? 'selected' : '' ?>>Viúvo(a)</option>
+                                    <option value="OUTROS" <?= isset($_GET['ESTCV']) && $_GET['ESTCV'] === 'OUTROS' ? 'selected' : '' ?>>Outros</option>
                                 </select>
                               </div>
                               
@@ -148,7 +144,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         <div class="col-md-9">
                               <label class="input-group-text" for="inputGroupSelect01">Cônjuge:</label>
                               <div class="form-group">
-                                <input type="text" name="CONJUGE" class="form-control" id="CONJUGE" placeholder="Nome do Cônjunge (Se houver)" data-rule="minlen:4" data-msg="Insira o nome do seu cônjunge!">
+                                <input type="text" name="CONJUGE" class="form-control" id="CONJUGE" placeholder="Nome do Cônjunge (Se houver)" data-rule="minlen:4" data-msg="Insira o nome do seu cônjunge!" value="<?= isset($_GET['CONJUGE']) ? $_GET['CONJUGE'] : "" ?>">
                             </div>
                               
                         </div>
@@ -160,7 +156,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                               <label class="input-group-text" for="inputGroupSelect01">Data de casamento:</label>
                               <div class="form-group" style="width:70%">
                                     <div class='input-group date' id='datetimepicker10'>
-                                    <input class="form-control" size="16" type="date" name="DT_CASAMENTO" id="DT_CASAMENTO" value="" placeholder="ex: 19/02/1990">
+                                    <input class="form-control" size="16" type="date" name="DT_CASAMENTO" id="DT_CASAMENTO" placeholder="ex: 19/02/1990" value="<?= isset($_GET['DT_CASAMENTO']) ? $_GET['DT_CASAMENTO'] : "" ?>">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar">
                                             </span>
@@ -176,7 +172,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         <div class="col-md-9">
                               <label class="input-group-text" for="inputGroupSelect01">Mãe:</label>
                               <div class="form-group">
-                                <input type="text" name="MAE" class="form-control" id="MAE" placeholder="Nome da Mãe" data-rule="minlen:4" data-msg="Insira o nome da sua mãe!" >
+                                <input type="text" name="MAE" class="form-control" id="MAE" placeholder="Nome da Mãe" data-rule="minlen:4" data-msg="Insira o nome da sua mãe!" value="<?= isset($_GET['MAE']) ? $_GET['MAE'] : "" ?>">
                               </div>
                               
                         </div>
@@ -187,7 +183,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                         <div class="col-md-9">
                               <label class="input-group-text" for="inputGroupSelect01">Pai:</label>
                               <div class="form-group">
-                                <input type="text" name="PAI" class="form-control" id="PAI" placeholder="Nome do Pai" data-rule="minlen:4" data-msg="Insira o nome do seu pai!">
+                                <input type="text" name="PAI" class="form-control" id="PAI" placeholder="Nome do Pai" data-rule="minlen:4" data-msg="Insira o nome do seu pai!" value="<?= isset($_GET['PAI']) ? $_GET['PAI'] : "" ?>">
                               </div>
                               
                         </div>
@@ -202,10 +198,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                     <label class="input-group-text" for="inputGroupSelect01"">RG:</label>
                                   </div>
                                   <div style="float:left;width:78%">
-                                      <input type="tel" name="RG" class="form-control" id="RG" placeholder="RG (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="7">
+                                      <input type="tel" name="RG" class="form-control" id="RG" placeholder="RG (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="7" value="<?= isset($_GET['RG']) ? $_GET['RG'] : "" ?>">
                                   </div>
                                   <div style="float:right;width:20%">
-                                      <input type="text" name="UF_RG" class="form-control" id="UF_RG" placeholder="UF" data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2">
+                                      <input type="text" name="UF_RG" class="form-control" id="UF_RG" placeholder="UF" data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" value="<?= isset($_GET['UF_RG']) ? $_GET['UF_RG'] : "" ?>">
                                   </div>
                               </div>
 
@@ -216,7 +212,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                   </div>
                                   <div class="form-group" style="width:100%">
                                     <div style="float:left;width:100%">
-                                        <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="CPF (Só número)" data-rule="minlen:4" data-msg="Insira seu número de CPF!" maxlength="11">
+                                        <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="CPF (Só número)" data-rule="minlen:4" data-msg="Insira seu número de CPF!" maxlength="11" value="<?= isset($_GET['CPF']) ? $_GET['CPF'] : "" ?>">
                                     </div>
                                   </div>
                               </div>
@@ -229,13 +225,13 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                     <label class="input-group-text" for="inputGroupSelect01">Título:</label>
                                     <div class="form-group" style="width:100%" >
                                         <div style="float:left;width:60%">
-                                            <input type="tel" name="TIT_NUM" class="form-control" id="TIT_NUM" placeholder="Título (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="12">
+                                            <input type="tel" name="TIT_NUM" class="form-control" id="TIT_NUM" placeholder="Título (Só números)" data-rule="minlen:4" data-msg="Insira seu número de RG!" maxlength="12" value="<?= isset($_GET['TIT_NUM']) ? $_GET['TIT_NUM'] : "" ?>">
                                         </div>
                                         <div style="float:right;width:20%">
-                                            <input type="tel" name="TIT_SEC" class="form-control" id="TIT_SEC" placeholder="Seção" data-rule="maxlen:4" data-msg="Seção do Título!" maxlength="4">
+                                            <input type="tel" name="TIT_SEC" class="form-control" id="TIT_SEC" placeholder="Seção" data-rule="maxlen:4" data-msg="Seção do Título!" maxlength="4" value="<?= isset($_GET['TIT_SEC']) ? $_GET['TIT_SEC'] : "" ?>">
                                         </div>
                                         <div style="float:right;width:20%">
-                                            <input type="tel" name="TIT_ZONA" class="form-control" id="TIT_ZONA" placeholder="Zona" data-rule="maxlen:3" data-msg="Zona do Título!" maxlength="3">
+                                            <input type="tel" name="TIT_ZONA" class="form-control" id="TIT_ZONA" placeholder="Zona" data-rule="maxlen:3" data-msg="Zona do Título!" maxlength="3" value="<?= isset($_GET['TIT_ZONA']) ? $_GET['TIT_ZONA'] : "" ?>">
                                         </div>
                                     </div>
                                     
@@ -248,10 +244,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                     <label class="input-group-text" for="inputGroupSelect01">CNH:</label>
                                     <div class="form-group" style="width:70%">
                                         <div style="float:left;width:80%">
-                                            <input type="tel" name="CNH" class="form-control" id="CNH" placeholder="CNH (Só números)" data-rule="minlen:12" data-msg="Insira seu número de CNH!" maxlength="12">
+                                            <input type="tel" name="CNH" class="form-control" id="CNH" placeholder="CNH (Só números)" data-rule="minlen:12" data-msg="Insira seu número de CNH!" maxlength="12" value="<?= isset($_GET['CNH']) ? $_GET['CNH'] : "" ?>">
                                         </div>
                                         <div style="float:right;width:20%">
-                                            <input type="text" name="CAT_CNH" class="form-control" id="CAT_CNH" placeholder="Categ." data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" >
+                                            <input type="text" name="CAT_CNH" class="form-control" id="CAT_CNH" placeholder="Categ." data-rule="maxlen:2" data-msg="UF de seu RG!" maxlength="2" value="<?= isset($_GET['CAT_CNH']) ? $_GET['CAT_CNH'] : "" ?>">
                                         </div>
                                     </div>
                                     
@@ -268,21 +264,21 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                                       <div>
                                           <select class="custom-select" id="inputGroupSelect02" name="ESC">
                                                   <option value="">........Selecione...........</option>
-                                                  <option value="0">ALFABETIZAÇÃO</option>
-                                                  <option value="1">FUNDAMENTAL - INCOMPLETO</option>
-                                                  <option value="2">FUNDAMENTAL - COMPLETO</option>
-                                                  <option value="3">MÉDIO - INCOMPLETO</option>
-                                                  <option value="4">MÉDIO - COMPLETO</option>
-                                                  <option value="5">SUPERIOR - INCOMPLETO</option>
-                                                  <option value="6">SUPERIOR - COMPLETO</option>
-                                                  <option value="7">ESPECIALIZAÇÃO - INCOMPLETO</option>
-                                                  <option value="8">ESPECIALIZAÇÃO - COMPLETO</option>
-                                                  <option value="9">MESTRADO - INCOMPLETO</option>
-                                                  <option value="10">MESTRADO - COMPLETO</option>
-                                                  <option value="11">DOUTORADO - INCOMPLETO</option>
-                                                  <option value="12">DOUTORADO - COMPLETO</option>
-                                                  <option value="13">PÓS-DOUTORADO - INCOMPLETO</option>
-                                                  <option value="14">PÓS-DOUTORADO - COMPLETO</option>
+                                                  <option value="0" <?= isset($_GET['ESC']) && $_GET['ESC'] === '0' ? 'selected' : '' ?>>ALFABETIZAÇÃO</option>
+                                                  <option value="1" <?= isset($_GET['ESC']) && $_GET['ESC'] === '1' ? 'selected' : '' ?>>FUNDAMENTAL - INCOMPLETO</option>
+                                                  <option value="2" <?= isset($_GET['ESC']) && $_GET['ESC'] === '2' ? 'selected' : '' ?>>FUNDAMENTAL - COMPLETO</option>
+                                                  <option value="3" <?= isset($_GET['ESC']) && $_GET['ESC'] === '3' ? 'selected' : '' ?>>MÉDIO - INCOMPLETO</option>
+                                                  <option value="4" <?= isset($_GET['ESC']) && $_GET['ESC'] === '4' ? 'selected' : '' ?>>MÉDIO - COMPLETO</option>
+                                                  <option value="5" <?= isset($_GET['ESC']) && $_GET['ESC'] === '5' ? 'selected' : '' ?>>SUPERIOR - INCOMPLETO</option>
+                                                  <option value="6" <?= isset($_GET['ESC']) && $_GET['ESC'] === '6' ? 'selected' : '' ?>>SUPERIOR - COMPLETO</option>
+                                                  <option value="7" <?= isset($_GET['ESC']) && $_GET['ESC'] === '7' ? 'selected' : '' ?>>ESPECIALIZAÇÃO - INCOMPLETO</option>
+                                                  <option value="8" <?= isset($_GET['ESC']) && $_GET['ESC'] === '8' ? 'selected' : '' ?>>ESPECIALIZAÇÃO - COMPLETO</option>
+                                                  <option value="9" <?= isset($_GET['ESC']) && $_GET['ESC'] === '9' ? 'selected' : '' ?>>MESTRADO - INCOMPLETO</option>
+                                                  <option value="10" <?= isset($_GET['ESC']) && $_GET['ESC'] === '10' ? 'selected' : '' ?>>MESTRADO - COMPLETO</option>
+                                                  <option value="11" <?= isset($_GET['ESC']) && $_GET['ESC'] === '11' ? 'selected' : '' ?>>DOUTORADO - INCOMPLETO</option>
+                                                  <option value="12" <?= isset($_GET['ESC']) && $_GET['ESC'] === '12' ? 'selected' : '' ?>>DOUTORADO - COMPLETO</option>
+                                                  <option value="13" <?= isset($_GET['ESC']) && $_GET['ESC'] === '13' ? 'selected' : '' ?>>PÓS-DOUTORADO - INCOMPLETO</option>
+                                                  <option value="14" <?= isset($_GET['ESC']) && $_GET['ESC'] === '14' ? 'selected' : '' ?>>PÓS-DOUTORADO - COMPLETO</option>
                                             </select>
                                       </div>  
                                   </div>

@@ -73,8 +73,6 @@ class Membro{
 	}
 	public function getMembro($id){
 
-		//$inicio = $ini;
-		//$maximo = $max;
 		$this->id = $id;
 		$sql="SELECT * FROM MEMBROS WHERE ID = :id";
 		$sql = $this->pdo->prepare($sql);
@@ -112,6 +110,7 @@ class Membro{
 
 		//$sql = "INSERT INTO MEMBROS (NOME, SEXO, NASC, NAT, NAT_UF, NAC, ESTCV, ESC, PROF, RG, UF_RG, CPF, CNH, CAT_CNH, TIT_NUM, TIT_ZONA, TIT_SEC, MAE, PAI, CONJUGE, DT_CASAMENTO, ENDERECO, COMP_END, BAIRRO, CIDADE, CEP, UF, FONE1, FONE2, FONECT, N_FONECT, EMAIL, IGREJA, FUNCECLES, FUNCADM, FUNCADM2, SITUACAO, RECEPCAO, CV, BAT) VALUES ('$nome', '$sexo', '$nasc', '$nat', '$nat_uf', '$nac', '$estcv', '$esc', '$prof', '$rg', '$uf_rg', '$cpf', '$cnh', '$cat_cnh', '$tit_num', '$tit_zona', '$tit_sec', '$mae', '$pai', '$conjuge', '$dt_casamento', '$endereco', '$comp_end', '$bairro', '$cidade', '$cep', '$uf', '$fone1', '$fone2', '$fonect', '$n_fonect', '$email', '$igreja', '$funcecles', '$funcadm', '$funcadm2', '$recepcao', '$cv', '$bat')";
 		$nasc = !empty($nasc) ? "NASC = '$nasc'," : '';
+		$esc = !empty($esc) ? "ESC = '$esc'," : '';
 		$dt_casamento = !empty($dt_casamento) ? "DT_CASAMENTO = '$dt_casamento'," : '';
 		
 		$funcecles = !empty($funcecles) ? ",FUNCECLES = '$funcecles'" : '';
@@ -132,7 +131,7 @@ class Membro{
 					NAT_UF 			= '$nat_uf',
 					NAC 			= '$nac',
 					ESTCV 			= '$estcv',
-					ESC 			= '$esc',
+					".$esc."
 					PROF 			= '$prof',
 					RG 				= '$rg',
 					UF_RG 			= '$uf_rg',

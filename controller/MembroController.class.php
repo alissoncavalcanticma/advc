@@ -13,11 +13,16 @@ if(isset($_GET['acao']) && !empty($_GET['acao'])){
 			//$_POST = array();
 			header("Location: ../view/cadMembros.php?display=true");
 			break;
+		case 'view':
+			$array = $membroC->listarMembro($_GET['id']);
+			//$_POST = array();
+			header("Location: ../view/cadMembros.php?".http_build_query($array));
+			break;
 		case 'edit':
-			$membroC->editarMembro($_GET['id']);
+			//$membroC->editarMembro($_GET['id']);
 			//$_POST = array();
 			//header("Location: ../view/cadMembros.php?display=true");
-			break;cadastrar
+			break;
 		default:
 			# code...
 			break;
@@ -83,7 +88,11 @@ class MembroController{
 		$nat_uf = strtoupper($_POST['NAT_UF']);
 		$nac = strtoupper($_POST['NAC']);
 		$estcv = $_POST['ESTCV'];
-		$esc = intval($_POST['ESC']);
+		
+		if(isset($_POST['ESC']) && !empty($_POST['ESC'])){
+			$esc = intval($_POST['ESC']);
+		}
+
 		$prof = strtoupper($_POST['PROF']);
 		$rg = $_POST['RG'];
 		$uf_rg = strtoupper($_POST['UF_RG']);
@@ -143,8 +152,14 @@ class MembroController{
 
 	}
 
-	public function editarMembro($id){
+	public function listarMembro($id){
 		
+		$id = addslashes($id);
+		
+		$pdo = new Conexao();
+		$membro = new Membro($pdo);
+		
+		return $membro->getMembro($id);
 	}
 }
 
