@@ -41,6 +41,8 @@ $membroC = new MembroController();
               <div class="content-panel">
               
               <div class="row sc_form" style="width:100%">
+              <!-- MSG -->
+                  <?= $_GET['display'] ? "<div style=display:".$_GET['display'].";margin-bottom:20px>".$_GET['msg']."</div>" : "" ?>
                   <div style="float:left;width:50%">
                     <h4>Membros </h4>
                   </div>
@@ -88,8 +90,8 @@ $membroC = new MembroController();
                               <td class="numeric"><?= $_M['SITUACAO']; ?></td>
                               <td class="numeric" style="text-align: center;">
                                   <!-- <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button> -->
-                                  <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=view&id=<?= $_M['ID'] ?>'"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                  <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=view&ID=<?= $_M['ID'] ?>'"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs" onclick="window.location.href='../controller/MembroController.class.php?acao=delete&ID=<?= $_M['ID'] ?>'"><i class="fa fa-trash-o "></i></button>
                               </td>
                           </tr>
                           <?php
