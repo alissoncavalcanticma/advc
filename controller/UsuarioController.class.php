@@ -22,8 +22,8 @@ class UsuarioController{
 		$senha = $s;
 
 		if($this->user->validaLogin($usuario, $senha)){
-			  //header("Location:../view/dashboard.php");
-			  header("Location:../view/dashboard.php");
+			header("Location:membros.php?active=m");
+			//header("Location:../view/dashboard.php");
     	}else{
       		header("Location:../view/login.php");
     	}

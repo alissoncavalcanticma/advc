@@ -35,7 +35,16 @@ $membroC = new MembroController();
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-          <h3><i class="fa fa-angle-right"></i> Corpo </h3>
+          <div>
+              <div style="float:left">
+                <h3><i class="fa fa-angle-right"></i> Membros </h3>
+              </div>
+              <div style="float:right">
+                <a href="#fim" class="go-down">
+                  <i class="fa fa-angle-down" style="font-size: 21px;"></i>
+                </a>
+              </div>
+          </div>
           <div class="row mt">
             <div class="col-lg-12 pd-30">
               <div class="content-panel">
@@ -528,7 +537,7 @@ $membroC = new MembroController();
                               </div>
                       </div>
                       <!-- END BATISMO - CONVERSAO -->
-                      <div style="text-align:center;margin-top:60px;margin-bottom:40px"><strong>----------------------------------- FIM ------------------------------------</strong></div>
+                      <div id="fim" style="text-align:center;margin-top:60px;margin-bottom:40px"><strong>----------------------------------- FIM ------------------------------------</strong></div>
                             
                             <!--<input type="hidden" name="SUCESS" value="true">-->
 

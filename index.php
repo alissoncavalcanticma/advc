@@ -4,7 +4,8 @@ session_start();
 
 if(isset($_SESSION['logon']) && !empty($_SESSION['logon'])){
 
-      header("Location:view/dashboard.php");
+      header("Location:view/membros.php?active=m");
+      //header("Location:view/dashboard.php");
       //echo $_SESSION['logado'];
       
 }else{
