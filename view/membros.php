@@ -22,6 +22,13 @@ $membroC = new MembroController();
 <!--header end-->
 
 <link href="../assets/css/table-responsive.css" rel="stylesheet">
+<script type="text/javascript">
+  var qnt_result_pg = 50;
+  var pagina = 1;
+  function listar_membros(qnt_result_pg, pagina){
+    
+  }
+</script>
 
     <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU

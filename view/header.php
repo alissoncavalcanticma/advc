@@ -49,6 +49,7 @@
         <!--  notification start -->
         <ul class="nav top-menu">
           <!-- settings start -->
+          <!--
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-tasks"></i>
@@ -116,8 +117,10 @@
               </li>
             </ul>
           </li>
+          -->
           <!-- settings end -->
           <!-- inbox dropdown start-->
+          <!--
           <li id="header_inbox_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
@@ -181,8 +184,10 @@
               </li>
             </ul>
           </li>
+          -->
           <!-- inbox dropdown end -->
           <!-- notification dropdown start-->
+          <!--
           <li id="header_notification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-bell-o"></i>
@@ -226,6 +231,7 @@
               </li>
             </ul>
           </li>
+          -->
           <!-- notification dropdown end -->
         </ul>
         <!--  notification end -->
