@@ -44,7 +44,7 @@ $membroC = new MembroController();
               
               <div class="row sc_form" style="width:100%">
               <!-- MSG -->
-                  <?= $_GET['display'] ? "<div style=display:".$_GET['display'].";margin-bottom:10px>".$_GET['msg']."</div>" : "" ?>
+                  <?= $_GET['display'] ? "<div style=display:".$_GET['display'].";margin-bottom:20px>".$_GET['msg']."</div>" : "" ?>
                   <div style="float:left;width:50%">
                     <h4>Membros </h4>
                   </div>
@@ -76,14 +76,8 @@ $membroC = new MembroController();
                 //multiplicamos a quantidade de registros da pagina pelo valor da pagina atual 
                 $inicio = $maximo * $inicio; 
                 
-                if(isset($_GET['where']) && !empty($_GET['where'])){
-                  $where = "WHERE NOME LIKE '%".$_GET['where']."%'";
-                }else{
-                  $where = "";
-                }
-
                 //fazemos um select na tabela que iremos utilizar para saber quantos registros ela possui
-                $selectCount = $pdo->query("SELECT COUNT(*) AS 'ID' FROM MEMBROS $where");
+                $selectCount = $pdo->query("SELECT COUNT(*) AS 'ID' FROM MEMBROS");
                 //iniciamos uma var que será usada para armazenar a qtde de registros da tabela  
                 $total = 0;
                 if($selectCount->rowCount()){
@@ -92,9 +86,8 @@ $membroC = new MembroController();
                     $total = $row["ID"]; 
                   }
                 }
-
                 //guardo o resultado na variavel pra exibir os dados na pagina		
-                $selectFull = $pdo->query("SELECT * FROM MEMBROS $where ORDER BY ID LIMIT $inicio, $maximo");
+                $selectFull = $pdo->query("SELECT * FROM MEMBROS ORDER BY ID LIMIT $inicio, $maximo");
 
                 //determina de quantos em quantos links serão adicionados e removidos
                 $max_links = 2;
@@ -108,57 +101,48 @@ $membroC = new MembroController();
                 ?>
                   <div class="row">
                     <div class="col-md-6" style="float:left">
-                      <nav align="center" aria-label="Page navigation" class="nav-pagination" style="margin-bottom: -15px; margin-top: -15px; margin-left:10px;padding:1px">
-                              <ul class="pagination">
-                              <li>
-                              <?php 
-                              if($previous != 0) { ?>
-                                  <a href=<?= $_SERVER['PHP_SELF']?>?active=<?= $_GET['active'] ?>&pagina=<?= $previous ?><?= isset($_GET['where']) ? '&where='.$_GET['where'] : "" ?> aria-label="Previous">
-                                      <span aria-hidden="true">Anterior</span>
-                                  </a>
-                              <?php } else { ?>
-                                      <span aria-hidden="true">Anterior</span>
-                              <?php } ?>
-                              </li>
-                              <?php
-                                      if($pagina > 2){
-                                          echo "<li><span aria-hidden='true'>...</li>";
-                                      }
-                                      if($pagina > 1){
-                                      echo "<li><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$previous.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$previous."</a></li>";
-                                      }
-                                      echo "<li class='active'><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$pagina.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$pagina."</a></li>";
-                                      if($next <= $pgs){
-                                          echo "<li><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$next.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$next."</a></li>"; 
-                                      }
-                                      if($next < $pgs){
-                                          echo "<li><span aria-hidden='true'>...</li>";
-                                      }
-                                      ?>
-                              <li>
-                                  <?php 
-                                  if($next <= $pgs) { ?>
-                                      <a href=<?= $_SERVER['PHP_SELF']?>?active=<?= $_GET['active'] ?>&pagina=<?= $next ?><?= isset($_GET['where']) ? '&where='.$_GET['where'] : "" ?> aria-label="Previous">
-                                          <span aria-hidden="true">Próximo</span>
-                                      </a>
-                                  <?php } else { ?>
-                                      <span aria-hidden="true">Próximo</span>
-                                      <?php } ?>
-                                  </li>
-                              </ul>
-                      </nav>  
-                      <div style="margin-left:13px;padding-bottom:5px"><?= "Total de ".$total." registros" ?></div>
+                    <nav align="center" aria-label="Page navigation" class="nav-pagination" style="margin-bottom: 2px; margin-top: 1px; margin-left:10px;padding:1px">
+                            <ul class="pagination">
+                            <li>
+                            <?php 
+                            if($previous != 0) { ?>
+                                <a href=<?= $_SERVER['PHP_SELF']?>?active=m&pagina=<?= $previous ?> aria-label="Previous">
+                                    <span aria-hidden="true">Anterior</span>
+                                </a>
+                            <?php } else { ?>
+                                    <span aria-hidden="true">Anterior</span>
+                            <?php } ?>
+                            </li>
+                            <?php
+                                    if($pagina > 2){
+                                        echo "<li><span aria-hidden='true'>...</li>";
+                                    }
+                                    if($pagina > 1){
+                                    echo "<li><a href=".$_SERVER['PHP_SELF']."?active=m&pagina=".$previous.">".$previous."</a></li>";
+                                    }
+                                    echo "<li class='active'><a href=".$_SERVER['PHP_SELF']."?active=m&pagina=".$pagina.">".$pagina."</a></li>";
+                                    if($next <= $pgs){
+                                        echo "<li><a href=".$_SERVER['PHP_SELF']."?active=m&pagina=".$next .">".$next."</a></li>"; 
+                                    }
+                                    if($next < $pgs){
+                                        echo "<li><span aria-hidden='true'>...</li>";
+                                    }
+                                    ?>
+                            <li>
+                                <?php 
+                                if($next <= $pgs) { ?>
+                                    <a href=<?= $_SERVER['PHP_SELF']?>?active=m&pagina=<?= $next ?> aria-label="Previous">
+                                        <span aria-hidden="true">Próximo</span>
+                                    </a>
+                                <?php } else { ?>
+                                    <span aria-hidden="true">Próximo</span>
+                                    <?php } ?>
+                                </li>
+                            </ul>
+                    </nav>  
                     </div>
-                    <div class="col-md-6">
-                      <form method="get" class="form-inline my-2 my-lg-10" style="float:right; margin-bottom: 0px; margin-top: 22px; padding-right:10px">
-                      <?php
-                        if(isset($_GET['active']) && !empty($_GET['active'])){
-                            echo "<input type='hidden' name='active' value='$_GET[active]'>";
-                        }
-                        ?>  
-                        <input name="where" class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" value="<?= isset($_GET['where']) && !empty($_GET['where']) ? $_GET['where'] : '' ?>">
-                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Pesquisar</button>
-                      </form>
+                    <div class="col-md-5">
+                      <input type="search" align="center" aria-label="Page navigation" class="nav-pagination" style="margin-bottom: 2px; margin-top: 28px; margin-right:0px;padding:1px;float:right">
                     </div>
                   </div>
 
@@ -181,23 +165,21 @@ $membroC = new MembroController();
                       <?php
 
                         if($selectFull->rowCount()){
-                          foreach ($selectFull as $_M) { 
-                      
-                      ?>
+                          foreach ($selectFull as $res) { ?>
 
                           <tr>
-                              <td><?= $_M['ID']; ?></td>
-                              <td><?= $_M['NOME']; ?></td>
-                              <td class="numeric"><?= $_M['CPF']; ?></td>                            
-                              <td class="numeric"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
-                              <td class="numeric"><?= $_M['FONE1']; ?></td>
-                              <td class="numeric"><?= $_M['EMAIL']; ?></td>
-                              <td class="numeric"><?= $membroC->retornaFuncEcles($_M['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
-                              <td class="numeric"><?= $_M['SITUACAO']; ?></td>
+                              <td><?= $res['ID']; ?></td>
+                              <td><?= $res['NOME']; ?></td>
+                              <td class="numeric"><?= $res['CPF']; ?></td>                            
+                              <td class="numeric"><?= $membroC->calculaIdade($res['NASC']) ?></td>
+                              <td class="numeric"><?= $res['FONE1']; ?></td>
+                              <td class="numeric"><?= $res['EMAIL']; ?></td>
+                              <td class="numeric"><?= $membroC->retornaFuncEcles($res['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
+                              <td class="numeric"><?= $res['SITUACAO']; ?></td>
                               <td class="numeric" style="text-align: center;">
                                   <!-- <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button> -->
-                                  <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=view&ID=<?= $_M['ID'] ?>'"><i class="fa fa-pencil"></i></button>
-                                  <button class="btn btn-danger btn-xs" onclick="window.location.href='../controller/MembroController.class.php?acao=delete&ID=<?= $_M['ID'] ?>'"><i class="fa fa-trash-o "></i></button>
+                                  <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=view&ID=<?= $res['ID'] ?>'"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btn-xs" onclick="window.location.href='../controller/MembroController.class.php?acao=delete&ID=<?= $res['ID'] ?>'"><i class="fa fa-trash-o "></i></button>
                               </td>
                           </tr>
 

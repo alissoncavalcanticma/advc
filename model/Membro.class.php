@@ -264,6 +264,19 @@ class Membro{
 
 		return true;
 	}
+	/*
+	public function getSelectCount($pdo){
+		$selectCount = "SELECT COUNT(*) AS 'ID' FROM MEMBROS";
+		$selectCount = $pdo->query($selectCount);
+		return $selectCount;
+	}
+
+	public function getSelectFull($pdo, $inicio, $maximo){
+		$selectFull = "SELECT * FROM MEMBROS ORDER BY ID LIMIT";
+		$selectFull = $pdo->query("SELECT * FROM MEMBROS ORDER BY ID LIMIT $inicio, $maximo");
+		return $selectFull;
+	}
+	*/
 }
 /*
 include '../autoload.php';

@@ -260,6 +260,7 @@ class MembroController{
 		$membro->deleteMembro($id);
 
 	}
+
 }
 
 
