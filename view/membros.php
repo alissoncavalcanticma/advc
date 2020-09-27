@@ -15,7 +15,6 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
 $membroC = new MembroController();
 
 
-
 ?>
 <!-- header start -->
 <?php include_once 'header.php'; ?>
