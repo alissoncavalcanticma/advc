@@ -43,7 +43,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b><span class="text-lowercase" style="color:white">websys</span><span class="text-uppercase" style="color:#0D6DA2">ADVC</span></b></a>
+      <a href="dash.php" class="logo"><b><span class="text-lowercase" style="color:white">websys</span><span class="text-uppercase" style="color:#0D6DA2">ADVC</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->

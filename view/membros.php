@@ -168,11 +168,11 @@ $membroC = new MembroController();
                         <th>ID</th>
                         <th>Nome</th>
                         <th class="numeric">CPF</th>
-                        <th class="numeric">IDADE</th>
-                        <th class="numeric">TELEFONE</th>
-                        <th class="numeric">E-MAIL</th>
-                        <th class="numeric">FUNÇÃO ECLESIÁSTICA</th>
-                        <th class="numeric">Status</th>
+                        <th class="numeric">Idade</th>
+                        <th class="numeric">Telefone</th>
+                        <th class="numeric">E-mail</th>
+                        <th class="numeric">Função Eclesiástica</th>
+                        <th class="numeric">Igreja</th>
                         <th class="numeric">Ações</th>
                       </tr>
                     </thead>
@@ -186,15 +186,15 @@ $membroC = new MembroController();
                       ?>
 
                           <tr>
-                              <td><?= $_M['ID']; ?></td>
-                              <td><?= $_M['NOME']; ?></td>
-                              <td class="numeric"><?= $_M['CPF']; ?></td>                            
-                              <td class="numeric"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
-                              <td class="numeric"><?= $_M['FONE1']; ?></td>
-                              <td class="numeric"><?= $_M['EMAIL']; ?></td>
-                              <td class="numeric"><?= $membroC->retornaFuncEcles($_M['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
-                              <td class="numeric"><?= $_M['SITUACAO']; ?></td>
-                              <td class="numeric" style="text-align: center;">
+                              <td style="width: 3%"><?= $_M['ID']; ?></td>
+                              <td style="width: 25%"><?= $_M['NOME']; ?></td>
+                              <td class="numeric" style="width: 9%"><?= $_M['CPF']; ?></td>                            
+                              <td class="numeric" style="width: 3%"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
+                              <td class="numeric" style="width: 9%"><?= $_M['FONE1']; ?></td>
+                              <td class="numeric" style="width: 23%"><?= $_M['EMAIL']; ?></td>
+                              <td class="numeric" style="width: 13%"><?= $membroC->retornaFuncEcles($_M['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
+                              <td class="numeric" style="width: 9%"><?= $_M['IGREJA'] == '1' ? "SEDE" : "CRUZ DE R." ?></td>
+                              <td class="numeric" style="text-align: center; width: 6%">
                                   <!-- <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button> -->
                                   <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=view&ID=<?= $_M['ID'] ?>'"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-danger btn-xs" onclick="window.location.href='../controller/MembroController.class.php?acao=delete&ID=<?= $_M['ID'] ?>'"><i class="fa fa-trash-o "></i></button>

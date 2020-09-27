@@ -54,6 +54,57 @@ MAIN SIDEBAR MENU
             </ul>
             -->
           </li>
+          <li class="sub-menu">
+          <a <?= isset($_GET['active']) && ($_GET['active'] == 'f' || $_GET['active'] == 'f2') ? "class='active'" : "" ?> href="javascript:;">
+              <i class="fa fa-bar-chart "></i>
+              <span>Relatórios</span>
+              </a>
+            <!--
+            <ul class="sub">
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro.php?active=f">Contas</a></li>
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f2' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro2.php?active=f2">Contas</a></li>
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+              
+            </ul>
+            -->
+          </li>
+          <li class="sub-menu">
+          <a <?= isset($_GET['active']) && ($_GET['active'] == 'f' || $_GET['active'] == 'f2') ? "class='active'" : "" ?> href="javascript:;">
+              <i class="fa fa-archive"></i>
+              <span>Patrimônio</span>
+              </a>
+            <!--
+            <ul class="sub">
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro.php?active=f">Contas</a></li>
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f2' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro2.php?active=f2">Contas</a></li>
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+              
+            </ul>
+            -->
+          </li>
+          <li class="sub-menu">
+          <a <?= isset($_GET['active']) && ($_GET['active'] == 'f' || $_GET['active'] == 'f2') ? "class='active'" : "" ?> href="javascript:;">
+              <i class="fa fa-cogs"></i>
+              <span>Configurações</span>
+              </a>
+            <!--
+            <ul class="sub">
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro.php?active=f">Contas</a></li>
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f2' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro2.php?active=f2">Contas</a></li>
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+              
+            </ul>
+            -->
+          </li>
           
           <!-- END ITEMMENU Membros -->
           <!-- ITEMMENU Finanças -->

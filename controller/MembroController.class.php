@@ -68,6 +68,11 @@ class MembroController{
 			$nasc = mktime( 0, 0, 0, $mes, $dia, $ano);
 			// cálculo
 			$idade = floor((((($hoje - $nasc) / 60) / 60) / 24) / 365.25);
+
+			if($idade < 0){
+				$idade = 0;
+				return $idade;
+			}
 		
 			return $idade;
 
