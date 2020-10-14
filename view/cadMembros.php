@@ -76,6 +76,26 @@ $membroC = new MembroController();
                         </div>
                     </div>
                 <!-- END NOME -->
+                <!-- FOTO -->
+
+                    <div class="col-sm-3"><!--left col-->
+                
+
+                      <div class="text-center">
+                          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                          <br>
+                          <input type="file" class="text-center center-block file-upload">
+                      </div>
+                      </hr>
+                      <br>
+            
+                      <div class="panel panel-default">
+                              
+                      </div>
+                            
+                </div><!--/col-3-->
+
+                <!-- END FOTO-->
                 <!-- SEXO -->
                     <div class="row rowForm">
                         <div class="col-md-2">
@@ -582,6 +602,29 @@ $membroC = new MembroController();
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
+    <script type="text/javascript">
+        
+                $(document).ready(function() {
+                
+                var readURL = function(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.avatar').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+                }
+
+                $(".file-upload").on('change', function(){
+                    readURL(this);
+                });
+                });
+        
+    </script>
     
 <!--footer start-->
 <?php include_once 'footer.php'; ?>
