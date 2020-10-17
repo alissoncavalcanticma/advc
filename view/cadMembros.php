@@ -66,7 +66,7 @@ $membroC = new MembroController();
 <!-- MSG -->
              <?= $_GET['display'] ? "<div style=display:".$_GET['display'].";margin-bottom:20px>Cadastro inserido!</div>" : "" ?>
 <!-- FORM -->
-              <form action="../controller/MembroController.class.php?<?= isset($_GET['ID']) && !empty($_GET['ID']) ? 'acao=edit&ID='.$_GET['ID'].'' : 'acao=insert' ?>" method="post">
+              <form action="../controller/MembroController.class.php?<?= isset($_GET['ID']) && !empty($_GET['ID']) ? 'acao=edit&ID='.$_GET['ID'].'' : 'acao=insert' ?>" method="post" enctype="multipart/form-data">
               <div style="text-align:left;margin-bottom: 10px"><strong> >> Informações principais ---------------------------------------------------------------</strong></div>
                 <!-- NOME -->
                     <div class="row rowForm">
@@ -78,22 +78,15 @@ $membroC = new MembroController();
                 <!-- END NOME -->
                 <!-- FOTO -->
 
-                    <div class="col-sm-3"><!--left col-->
-                
-
-                      <div class="text-center">
-                          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                          <br>
-                          <input type="file" class="text-center center-block file-upload">
-                      </div>
-                      </hr>
-                      <br>
-            
-                      <div class="panel panel-default">
-                              
-                      </div>
-                            
-                </div><!--/col-3-->
+                <div class="text-center" style="float:right; position: absolute; right: 4%; top: 4%">
+                    <img style="width: 150px; height: 150px" src="<?= isset($_GET['CFOTO']) ? $_GET['CFOTO'] : '../assets/img/users/avatar.png' ?>" class="preview-img avatar img-circle img-thumbnail" alt="avatar">
+                    <br>
+                    <div style="margin-top:10px; font-size: 12px">
+                      <input type="file" name="fileUpload" class="text-center center-block file-upload file-chooser file-button" accept="image/*" hidden>
+                    </div>
+                   
+                </div>
+                        
 
                 <!-- END FOTO-->
                 <!-- SEXO -->
@@ -124,7 +117,7 @@ $membroC = new MembroController();
                                 </div>
                         </div>
                       </div>
-                <!-- END NASC -->
+                <!-- END NASC -->     
                 <!-- NAT -->
                 <div class="row rowForm">
                         <div class="col-md-9">
@@ -603,7 +596,7 @@ $membroC = new MembroController();
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <script type="text/javascript">
-        
+                /*
                 $(document).ready(function() {
                 
                 var readURL = function(input) {
@@ -623,6 +616,24 @@ $membroC = new MembroController();
                     readURL(this);
                 });
                 });
+
+                */
+
+                const $ = document.querySelector.bind(document);
+
+                const previewImg = $('.preview-img');
+                const fileChooser = $('.file-chooser');
+                const fileButton = $('.file-button');
+
+                fileButton.onclick = () => fileChooser.click();
+
+                fileChooser.onchange = e => {
+                    const fileToUpload = e.target.files.item(0);
+                    const reader = new FileReader();
+                    reader.onload = e => previewImg.src = e.target.result;
+                    reader.readAsDataURL(fileToUpload);
+                };
+
         
     </script>
     

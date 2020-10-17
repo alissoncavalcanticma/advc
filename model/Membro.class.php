@@ -7,6 +7,7 @@ class Membro{
 	
 	private $id;
 	private $nome;
+	private $cfoto;
 	private $sexo;
 	private $nasc;
 	private $idade;
@@ -106,9 +107,10 @@ class Membro{
 		return $fe;
 		//echo $funcecles;die("oi");
 	}
-	public function insert($nome, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat){
+	public function insert($nome, $cfoto, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat){
 
 		//$sql = "INSERT INTO MEMBROS (NOME, SEXO, NASC, NAT, NAT_UF, NAC, ESTCV, ESC, PROF, RG, UF_RG, CPF, CNH, CAT_CNH, TIT_NUM, TIT_ZONA, TIT_SEC, MAE, PAI, CONJUGE, DT_CASAMENTO, ENDERECO, COMP_END, BAIRRO, CIDADE, CEP, UF, FONE1, FONE2, FONECT, N_FONECT, EMAIL, IGREJA, FUNCECLES, FUNCADM, FUNCADM2, SITUACAO, RECEPCAO, CV, BAT) VALUES ('$nome', '$sexo', '$nasc', '$nat', '$nat_uf', '$nac', '$estcv', '$esc', '$prof', '$rg', '$uf_rg', '$cpf', '$cnh', '$cat_cnh', '$tit_num', '$tit_zona', '$tit_sec', '$mae', '$pai', '$conjuge', '$dt_casamento', '$endereco', '$comp_end', '$bairro', '$cidade', '$cep', '$uf', '$fone1', '$fone2', '$fonect', '$n_fonect', '$email', '$igreja', '$funcecles', '$funcadm', '$funcadm2', '$recepcao', '$cv', '$bat')";
+		$cfoto = !empty($cfoto) ? "CFOTO = '$cfoto'," : '';
 		$nasc = !empty($nasc) ? "NASC = '$nasc'," : '';
 		$esc = !empty($esc) ? "ESC = '$esc'," : '';
 		$dt_casamento = !empty($dt_casamento) ? "DT_CASAMENTO = '$dt_casamento'," : '';
@@ -125,6 +127,7 @@ class Membro{
 					MEMBROS
 				SET
 					NOME 			= '$nome',
+					".$cfoto."
 					SEXO 			= '$sexo',
 					".$nasc."
 					NAT  			= '$nat',
@@ -179,9 +182,10 @@ class Membro{
 		$sql->execute();
 	}
 
-	public function edit($id, $nome, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat){
+	public function edit($id, $nome, $cfoto, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat){
 
 		//$sql = "INSERT INTO MEMBROS (NOME, SEXO, NASC, NAT, NAT_UF, NAC, ESTCV, ESC, PROF, RG, UF_RG, CPF, CNH, CAT_CNH, TIT_NUM, TIT_ZONA, TIT_SEC, MAE, PAI, CONJUGE, DT_CASAMENTO, ENDERECO, COMP_END, BAIRRO, CIDADE, CEP, UF, FONE1, FONE2, FONECT, N_FONECT, EMAIL, IGREJA, FUNCECLES, FUNCADM, FUNCADM2, SITUACAO, RECEPCAO, CV, BAT) VALUES ('$nome', '$sexo', '$nasc', '$nat', '$nat_uf', '$nac', '$estcv', '$esc', '$prof', '$rg', '$uf_rg', '$cpf', '$cnh', '$cat_cnh', '$tit_num', '$tit_zona', '$tit_sec', '$mae', '$pai', '$conjuge', '$dt_casamento', '$endereco', '$comp_end', '$bairro', '$cidade', '$cep', '$uf', '$fone1', '$fone2', '$fonect', '$n_fonect', '$email', '$igreja', '$funcecles', '$funcadm', '$funcadm2', '$recepcao', '$cv', '$bat')";
+		$cfoto = !empty($cfoto) ? "CFOTO = '$cfoto'," : '';
 		$nasc = !empty($nasc) ? "NASC = '$nasc'," : '';
 		$esc = !empty($esc) ? "ESC = '$esc'," : '';
 		$dt_casamento = !empty($dt_casamento) ? "DT_CASAMENTO = '$dt_casamento'," : '';
@@ -198,6 +202,7 @@ class Membro{
 					MEMBROS
 				SET
 					NOME 			= '$nome',
+					".$cfoto."
 					SEXO 			= '$sexo',
 					".$nasc."
 					NAT  			= '$nat',
