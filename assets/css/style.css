@@ -16,7 +16,9 @@ Website: http://Alvarez.is/
 
 /* Import fonts */
 
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+/*@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900)*/
+
 
 /* BASIC THEME CONFIGURATION */
 
@@ -3538,4 +3540,22 @@ ul.chat-available-user li a:hover {
 }
 input[type="date"].form-control {
     line-height: 10px;
+}
+.bartitle {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #278dc4;
+    color: #ffffff;
+    width: 74%;
+    border-radius: 4px 4px 0px 0px;
+}
+.name-bartitle {
+    margin-left: 10px;
+}
+.middle-bartitle {
+    margin-top: 15px;
+    border-radius: 4px;
+}
+.pagination-pg {
+    display: block
 }

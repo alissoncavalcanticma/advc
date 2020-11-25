@@ -99,7 +99,7 @@ class MembroController{
 				//$ext = strtolower(substr($_FILES['fileUpload']['name'],-4)); //Pegando extensão do arquivo
 				//$new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
 				$primeiro_nome = explode(" ",$nome);
-				$primeiro_nome = strtolower($primeiro_nome[0]);
+				$primeiro_nome = strtolower($primeiro_nome[0].$primeiro_nome[1]);
 				$new_name = $primeiro_nome.'.jpg';
 				$dir = '../assets/img/users/'; //Diretório para uploads de fotos de usuários
 				
@@ -111,9 +111,11 @@ class MembroController{
 				//move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
 				
 			}else{ $cfoto = '../assets/img/users/avatar.png'; }
-			echo $cfoto;
-			die();
-				
+			//echo $cfoto;
+			//die();
+		
+		$codmembro = $_POST['CODMEMBRO'];	
+		//echo $codmembro; die();	
 		$sexo = $_POST['SEXO'];
 			
 		if(isset($_POST['NASC']) && !empty($_POST['NASC'])){
@@ -184,23 +186,23 @@ class MembroController{
 		$pdo = new Conexao();
 		$membro = new Membro($pdo);
 
-		$membro->insert($nome, $cfoto, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat);
+		$membro->insert($nome, $cfoto, $codmembro, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat);
 
 	}
 
 	public function editarMembro($id){
 		
-		//39 campos
+		//40 campos
 		//echo $id;die();
 		$nome = strtoupper($_POST['NOME']); 
-		if(isset($_FILES['fileUpload']))
+		if(isset($_FILES['fileUpload']) && !empty($_FILES['fileUpload']))
 			{	
 				
 				//date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
 				//$ext = strtolower(substr($_FILES['fileUpload']['name'],-4)); //Pegando extensão do arquivo
 				//$new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
 				$primeiro_nome = explode(" ",$nome);
-				$primeiro_nome = strtolower($primeiro_nome[0]);
+				$primeiro_nome = strtolower($primeiro_nome[0].$primeiro_nome[1]);
 				$new_name = $primeiro_nome.'.jpg';
 				$dir = '../assets/img/users/'; //Diretório para uploads de fotos de usuários
 				
@@ -211,10 +213,11 @@ class MembroController{
 
 				//move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
 				
-			}else{ $cfoto = '../assets/img/users/avatar.png'; }
-			echo $cfoto;
-			die();
+			}
+			//echo $cfoto;
+			//die();
 
+		$codmembro = $_POST['CODMEMBRO'];
 		$sexo = $_POST['SEXO'];
 			
 		if(isset($_POST['NASC']) && !empty($_POST['NASC'])){
@@ -285,7 +288,7 @@ class MembroController{
 		$pdo = new Conexao();
 		$membro = new Membro($pdo);
 
-		$membro->edit($id, $nome, $cfoto, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat);
+		$membro->edit($id, $nome, $cfoto, $codmembro, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat);
 
 	}
 

@@ -41,7 +41,7 @@ $membroC = new MembroController();
             <div class="col-lg-12">
               <div class="content-panel">
               
-              <div class="row sc_form" style="width:100%">
+              <div class="row sc_form" style="width:100%; padding-right: 0px;">
               <!-- MSG -->
                   <?= $_GET['display'] ? "<div style=display:".$_GET['display'].";margin-bottom:10px>".$_GET['msg']."</div>" : "" ?>
                   <div style="float:left;width:50%">
@@ -108,48 +108,48 @@ $membroC = new MembroController();
                   <div class="row">
                     <div class="col-md-6" style="float:left">
                       <nav align="center" aria-label="Page navigation" class="nav-pagination" style="margin-bottom: -15px; margin-top: -15px; margin-left:10px;padding:1px">
-                              <ul class="pagination">
-                              <li>
-                              <?php 
-                              if($previous != 0) { ?>
-                                  <a href=<?= $_SERVER['PHP_SELF']?>?active=<?= $_GET['active'] ?>&pagina=<?= $previous ?><?= isset($_GET['where']) ? '&where='.$_GET['where'] : "" ?> aria-label="Previous">
-                                      <span aria-hidden="true">Anterior</span>
-                                  </a>
-                              <?php } else { ?>
-                                      <span aria-hidden="true">Anterior</span>
-                              <?php } ?>
-                              </li>
-                              <?php
-                                      if($pagina > 2){
-                                          echo "<li><span aria-hidden='true'>...</li>";
-                                      }
-                                      if($pagina > 1){
-                                      echo "<li><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$previous.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$previous."</a></li>";
-                                      }
-                                      echo "<li class='active'><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$pagina.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$pagina."</a></li>";
-                                      if($next <= $pgs){
-                                          echo "<li><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$next.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$next."</a></li>"; 
-                                      }
-                                      if($next < $pgs){
-                                          echo "<li><span aria-hidden='true'>...</li>";
-                                      }
-                                      ?>
-                              <li>
-                                  <?php 
-                                  if($next <= $pgs) { ?>
-                                      <a href=<?= $_SERVER['PHP_SELF']?>?active=<?= $_GET['active'] ?>&pagina=<?= $next ?><?= isset($_GET['where']) ? '&where='.$_GET['where'] : "" ?> aria-label="Previous">
-                                          <span aria-hidden="true">Próximo</span>
-                                      </a>
-                                  <?php } else { ?>
-                                      <span aria-hidden="true">Próximo</span>
-                                      <?php } ?>
-                                  </li>
+                              <ul class="pagination pagination-pg">
+                                <li>
+                                <?php 
+                                if($previous != 0) { ?>
+                                    <a href=<?= $_SERVER['PHP_SELF']?>?active=<?= $_GET['active'] ?>&pagina=<?= $previous ?><?= isset($_GET['where']) ? '&where='.$_GET['where'] : "" ?> aria-label="Previous">
+                                        <span aria-hidden="true">Anterior</span>
+                                    </a>
+                                <?php } else { ?>
+                                        <span aria-hidden="true">Anterior</span>
+                                <?php } ?>
+                                </li>
+                                <?php
+                                        if($pagina > 2){
+                                            echo "<li><span aria-hidden='true'>...</li>";
+                                        }
+                                        if($pagina > 1){
+                                        echo "<li><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$previous.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$previous."</a></li>";
+                                        }
+                                        echo "<li class='active'><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$pagina.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$pagina."</a></li>";
+                                        if($next <= $pgs){
+                                            echo "<li><a href=".$_SERVER['PHP_SELF']."?active=".$_GET['active']."&pagina=".$next.(isset($_GET['where']) ? '&where='.$_GET['where'] : '').">".$next."</a></li>"; 
+                                        }
+                                        if($next < $pgs){
+                                            echo "<li><span aria-hidden='true'>...</li>";
+                                        }
+                                        ?>
+                                <li>
+                                    <?php 
+                                    if($next <= $pgs) { ?>
+                                        <a href=<?= $_SERVER['PHP_SELF']?>?active=<?= $_GET['active'] ?>&pagina=<?= $next ?><?= isset($_GET['where']) ? '&where='.$_GET['where'] : "" ?> aria-label="Previous">
+                                            <span aria-hidden="true">Próximo</span>
+                                        </a>
+                                    <?php } else { ?>
+                                        <span aria-hidden="true">Próximo</span>
+                                        <?php } ?>
+                                </li>
                               </ul>
                       </nav>  
-                      <div style="margin-left:13px;padding-bottom:5px"><?= "Total de ".$total." registros" ?></div>
+                      
                     </div>
                     <div class="col-md-6">
-                      <form method="get" class="form-inline my-2 my-lg-10" style="float:right; margin-bottom: 0px; margin-top: 22px; padding-right:10px">
+                      <form method="get" class="form-inline my-2 my-lg-10" style="float:right; margin-bottom: 20px; margin-top: 5px; padding-right:10px">
                       <?php
                         if(isset($_GET['active']) && !empty($_GET['active'])){
                             echo "<input type='hidden' name='active' value='$_GET[active]'>";
@@ -159,6 +159,7 @@ $membroC = new MembroController();
                         <button class="btn btn-primary my-2 my-sm-0" type="submit">Pesquisar</button>
                       </form>
                     </div>
+                    <div style="margin-left:2%;padding-bottom:5px"><?= "Total de ".$total." registros" ?></div>
                   </div>
 
                     <table class="table table-striped table-bordered table-hover">
