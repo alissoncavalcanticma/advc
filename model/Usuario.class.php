@@ -97,7 +97,9 @@ class Usuario{
 			session_start();
 			$_SESSION['logon'] = $array['LOGIN'];
 			$_SESSION['logon_email'] = $array['EMAIL'];
-			$_SESSION['logon_nome'] = $array['NOME'];
+			$nome = explode(" ",$array['NOME']);
+				$nome = strtolower($nome[0].$nome[1]);
+			$_SESSION['logon_nome'] = $nome;
 			return true;
 		}else{
 			return false;
