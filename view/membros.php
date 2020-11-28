@@ -188,7 +188,8 @@ $membroC = new MembroController();
 
                           <tr>
                               <td style="width: 3%"><?= $_M['ID']; ?></td>
-                              <td style="width: 25%"><?= ucwords(mb_strtolower($_M['NOME'],'UTF-8'));?></td>
+                              <!-- <td style="width: 25%"><?= ucwords(mb_strtolower($_M['NOME'],'UTF-8'));?></td> -->
+                              <td style="width: 25%"><?= $_M['NOME']; ?></td>
                               <td class="numeric" style="width: 9%"><?= $_M['CPF']; ?></td>                            
                               <td class="numeric" style="width: 3%"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
                               <td class="numeric" style="width: 9%"><?= $_M['FONE1']; ?></td>
