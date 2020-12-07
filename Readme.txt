@@ -1,4 +1,4 @@
-<b>websysADVC - Sistema Web de gestão da ADVC</b>
+websysADVC - Sistema Web de gestão da ADVC
 
 Thanks for downloading this template!
 
