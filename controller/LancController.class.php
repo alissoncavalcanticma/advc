@@ -2,7 +2,7 @@
 
 require '../autoload.php';
 
-$membroC = new MembroController();
+$LancC = new LancController();
 
 
 if(isset($_GET['acao']) && !empty($_GET['acao'])){
@@ -40,15 +40,15 @@ if(isset($_GET['acao']) && !empty($_GET['acao'])){
 	$acao = "";
 }
 
-class MembroController{
+class LancController{
 
 	
-	public function listaMembros(){
+	public function listaLanc(){
 
 			$pdo = new Conexao();
-			$membro = new Membro($pdo);
+			$lanc = new Lanc($pdo);
 
-			return $membro->getMembros();
+			return $lanc->get();
 
 		}
 	public function calculaIdade($pNasc){

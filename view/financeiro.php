@@ -12,7 +12,7 @@ if(!isset($_SESSION['logon']) && empty($_SESSION['logon'])){
 }
 
 
-$membroC = new MembroController();
+$LancC = new LancController();
 
 
 ?>
@@ -64,7 +64,7 @@ $membroC = new MembroController();
 
                 $pdo = new Conexao();
                 $pdo->exec("SET CHARACTER SET utf8");
-                $membro = new Membro($pdo);
+                $lanc = new Lanc($pdo);
                   
                 $maximo = 10;
 
@@ -78,13 +78,13 @@ $membroC = new MembroController();
                 $inicio = $maximo * $inicio; 
                 
                 if(isset($_GET['where']) && !empty($_GET['where'])){
-                  $where = "WHERE NOME LIKE '%".$_GET['where']."%'";
+                  $where = "WHERE ID_REG LIKE '%".$_GET['where']."%'";
                 }else{
                   $where = "";
                 }
 
                 //fazemos um select na tabela que iremos utilizar para saber quantos registros ela possui
-                $selectCount = $pdo->query("SELECT COUNT(*) AS 'ID' FROM MEMBROS $where");
+                $selectCount = $pdo->query("SELECT COUNT(*) AS 'ID' FROM FIN_LANC $where");
                 //iniciamos uma var que será usada para armazenar a qtde de registros da tabela  
                 $total = 0;
                 if($selectCount->rowCount()){
@@ -95,7 +95,7 @@ $membroC = new MembroController();
                 }
 
                 //guardo o resultado na variavel pra exibir os dados na pagina		
-                $selectFull = $pdo->query("SELECT * FROM MEMBROS $where ORDER BY ID LIMIT $inicio, $maximo");
+                $selectFull = $pdo->query("SELECT * FROM FIN_LANC $where ORDER BY ID LIMIT $inicio, $maximo");
 
                 //determina de quantos em quantos links serão adicionados e removidos
                 $max_links = 2;
@@ -168,14 +168,13 @@ $membroC = new MembroController();
                     <thead style="color:honeydew;background-color:gray">
                       <tr>
                         <th>ID</th>
-                        <th>Nome</th>
-                        <th class="numeric">CPF</th>
-                        <th class="numeric">Idade</th>
-                        <th class="numeric">Telefone</th>
-                        <th class="numeric">E-mail</th>
-                        <th class="numeric">Função Eclesiástica</th>
-                        <th class="numeric">Igreja</th>
-                        <th class="numeric">Ações</th>
+                        <th class="numeric">Registro</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th class="numeric">Valor</th>
+                        <th class="numeric">Data de Emissão</th>
+                        <th class="numeric">Vencimento</th>
+                        <th>Ações</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -183,20 +182,18 @@ $membroC = new MembroController();
                       <?php
 
                         if($selectFull->rowCount()){
-                          foreach ($selectFull as $_M) { 
+                          foreach ($selectFull as $_L) { 
                       
                       ?>
 
                           <tr>
-                              <td style="width: 3%"><?= $_M['ID']; ?></td>
-                              <!-- <td style="width: 25%"><?= ucwords(mb_strtolower($_M['NOME'],'UTF-8'));?></td> -->
-                              <td style="width: 25%"><?= $_M['NOME']; ?></td>
-                              <td class="numeric" style="width: 9%"><?= $_M['CPF']; ?></td>                            
-                              <td class="numeric" style="width: 3%"><?= $membroC->calculaIdade($_M['NASC']) ?></td>
-                              <td class="numeric" style="width: 9%"><?= $_M['FONE1']; ?></td>
-                              <td class="numeric" style="width: 23%"><?= $_M['EMAIL']; ?></td>
-                              <td class="numeric" style="width: 13%"><?= $membroC->retornaFuncEcles($_M['FUNCECLES']); //$_M['FUNCECLES']; ?></td>
-                              <td class="numeric" style="width: 9%"><?= $_M['IGREJA'] == '1' ? "SEDE" : "CRUZ DE R." ?></td>
+                              <td style="width: 3%"><?= $_L['ID']; ?></td>
+                              <td style="width: 25%"><?= $_L['ID_REG']; ?></td>
+                              <td class="numeric" style="width: 9%"><?= $_L['TIPO']; ?></td>                            
+                              <td class="numeric" style="width: 3%"><?= $_L['DESCRICAO'] ?></td>
+                              <td class="numeric" style="width: 9%"><?= $_L['VALOR']; ?></td>
+                              <td class="numeric" style="width: 23%"><?= $_L['DT_REG']; ?></td>
+                              <td class="numeric" style="width: 13%"><?= $_L['DT_VENC']; ?></td>
                               <td class="numeric" style="text-align: center; width: 6%">
                                   <!-- <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button> -->
                                   <button class="btn btn-primary btn-xs" onclick="window.location.href='cadMembros.php?acao=view&ID=<?= $_M['ID'] ?>'"><i class="fa fa-pencil"></i></button>

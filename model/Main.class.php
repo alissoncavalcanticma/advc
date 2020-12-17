@@ -2,6 +2,7 @@
 
 abstract class Main{
     
+    private $pdo;
     public $params = array();
 
     abstract public function get();
@@ -11,8 +12,8 @@ abstract class Main{
 
     public function __construct($pdo){
 
-		$this->pdo = $pdo;
-		$this->pdo->exec('SET NAMES utf8');
+      $this->pdo = $pdo;
+      $this->pdo->exec('SET NAMES utf8');
 
 	}
 }
