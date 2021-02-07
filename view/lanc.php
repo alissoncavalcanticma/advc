@@ -23,7 +23,7 @@ $LancC = new LancController();
     $(document).ready(function(){
         $('#TIPO').change(function(){
             //$('#CATEGORIA').load('categ.php?acao=getcat&TIPO='+$('#TIPO').val());
-            $('#CATEGORIA').load('categ.php?acao=getcat&TIPO='+$('#TIPO').val());
+            $('#CAT').load('categ.php?acao=getcat&TIPO='+$('#TIPO').val());
             //console.log(TIPO);
         });
     });
@@ -66,9 +66,9 @@ $LancC = new LancController();
                         </button>
 
                         <!---------- MODAL --------------->
-                        <form method="get" action="../controller/LancController.class.php?acao=">
+                        <form method="get" action="../controller/LancController.class.php">
                           
-                       
+                        <input type="hidden" name="acao" value="<?= !isset($_GET['ID']) ? 'insert' : 'edit' ?>">
                         <!-- Modal -->
                         <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="margin-top:5%">
                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -106,7 +106,7 @@ $LancC = new LancController();
                                                           <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
                                                           <div class="form-group">
                                                             <!-- Conteúdo do select carregado dinâmicamente via ajax -->
-                                                            <select style="width:180px" class="custom-select btn btn-default dropdown-toggle" id="CATEGORIA" name="CATEGORIA">
+                                                            <select style="width:180px" class="custom-select btn btn-default dropdown-toggle" id="CAT" name="CAT">
                                                                 
                                                             </select>
                                                           </div>
@@ -136,7 +136,7 @@ $LancC = new LancController();
                                                 <!-- VENCIMENTO -->
                                                               <label class="input-group-text" for="inputGroupSelect01">Valor:</label>
                                                               <div class="form-group">
-                                                                <input type="tel" name="CPF" class="form-control" id="CPF" placeholder="R$" data-rule="minlen:4" data-msg="R$" maxlength="11" value="<?= isset($_GET['CPF']) ? $_GET['CPF'] : "" ?>">
+                                                                <input type="tel" name="VALOR" class="form-control" id="VALOR" placeholder="R$" data-rule="minlen:4" data-msg="R$" maxlength="11" value="<?= isset($_GET['VALOR']) ? $_GET['VALOR'] : "" ?>">
                                                               </div>
                                             <!-- END VENCIMENTO -->
                                       </div>
@@ -144,7 +144,7 @@ $LancC = new LancController();
                                             <!-- CATEGORIA -->
                                                         <label class="input-group-text" for="inputGroupSelect01">Vencimento:</label>
                                                         <div class='input-group date' id='datetimepicker10'>
-                                                            <input class="form-control" size="16" type="date" name="NASC" id="NASC" placeholder="ex: 19/02/1990" value="<?= isset($_GET['NASC']) ? $_GET['NASC'] : "" ?>" required>
+                                                            <input class="form-control" size="16" type="date" name="VENCIMENTO" id="VENCIMENTO" placeholder="ex: 19/02/1990" value="<?= isset($_GET['VENCIMENTO']) ? $_GET['VENCIMENTO'] : "" ?>" required>
                                                                 <span class="input-group-addon">
                                                                     <span class="glyphicon glyphicon-calendar">
                                                                     </span>
@@ -160,7 +160,7 @@ $LancC = new LancController();
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                                <button type="submit" class="btn btn-primary">Salvar mudanças</button>
                               </div>
                             </div>
                           </div>

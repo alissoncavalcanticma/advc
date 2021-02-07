@@ -88,47 +88,11 @@ class Lanc extends Main{
 		$sql = "INSERT INTO 
 					FIN_LANC
 				SET
-								= '$params[0]',
-					".$cfoto."
-					".$codmembro."
-					SEXO 			= '$sexo',
-					".$nasc."
-					NAT  			= '$nat',
-					NAT_UF 			= '$nat_uf',
-					NAC 			= '$nac',
-					ESTCV 			= '$estcv',
-					".$esc."
-					PROF 			= '$prof',
-					RG 				= '$rg',
-					UF_RG 			= '$uf_rg',
-					CPF 			= '$cpf',
-					CNH				= '$cnh',
-					CAT_CNH			= '$cat_cnh',
-					TIT_NUM			= '$tit_num',
-					TIT_ZONA		= '$tit_zona',
-					TIT_SEC			= '$tit_sec',
-					MAE				= '$mae',
-					PAI				= '$pai',
-					CONJUGE			= '$conjuge',
-					". $dt_casamento."
-					ENDERECO		= '$endereco',
-					COMP_END		= '$comp_end',
-					BAIRRO			= '$bairro',
-					CIDADE			= '$cidade',
-					CEP				= '$cep',
-					UF				= '$uf',
-					FONE1			= '$fone1',
-					FONE2			= '$fone2',
-					FONECT			= '$fonect',
-					N_FONECT		= '$n_fonect',
-					EMAIL			= '$email',
-					IGREJA			= '$igreja'
-					". $funcecles."
-					". $funcadm."
-					". $funcadm2."
-					". $recepcao."
-					". $cv."
-					". $bat."
+					TIPO 			= '$tipo',
+					CAT  			= '$cat',
+					DESC 			= '$desc',
+					VALOR			= '$valor',
+					VENC 			= '$venc',
 					";
 					
 

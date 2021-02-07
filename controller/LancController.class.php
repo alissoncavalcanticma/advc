@@ -11,7 +11,8 @@ if(isset($_REQUEST['acao']) && !empty($_REQUEST['acao'])){
 		case 'insert':
 			$lancC->cadastrarLanc();
 			//$_POST = array();
-			header("Location: ../view/cadLanc.php?display=true");
+			//echo "ok"; die();
+			header("Location: ../view/lanc.php?display=true&msg=Registro inserido com sucesso");
 			break;
 		case 'view':
 			$array = $lancC->listarLancamento($_GET['ID']);
@@ -78,22 +79,20 @@ class LancController{
 	public function cadastrarLanc(){
 	
 		$tipo = $_GET['TIPO'];
-		$categ = $_GET['CAT'];
+		$cat = $_GET['CAT'];
 		$desc = $_GET['DESCRICAO'];
 		$valor = $_GET['VALOR'];
-		//$vencimento = $_GET['VENCIMENTO'];
+		$venc = $_GET['VENCIMENTO'];
 		
 			
 		if(isset($_GET['VENCIMENTO']) && !empty($_GET['VENCIMENTO'])){
 			$vencimento = date("Y-m-d", strtotime($_GET['VENCIMENTO']));
 		}
 
-		$params = [$tipo, $categ, $desc, $valor, $vencimento];
-
 		$pdo = new Conexao();
 		$lanc = new Lanc($pdo);
 		
-		$lanc->insert($params);
+		$lanc->insert($tipo, $cat, $desc, $valor, $venc);
 
 	}
 
