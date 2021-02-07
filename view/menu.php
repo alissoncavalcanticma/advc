@@ -43,7 +43,7 @@ MAIN SIDEBAR MENU
               <span>Financeiro</span>
               </a>
             <ul class="sub">
-              <li <?= isset($_GET['active']) && $_GET['active'] == 'f' ? "class='active' style:'display:block;'" : "" ?>><a href="financeiro.php?active=f">Lançamentos</a></li>
+              <li <?= isset($_GET['active']) && $_GET['active'] == 'f' ? "class='active' style:'display:block;'" : "" ?>><a href="lanc.php?active=f">Lançamentos</a></li>
               <li <?= isset($_GET['active']) && $_GET['active'] == 'f2' ? "class='active' style:'display:block;'" : "" ?>><a href="#">Contas</a></li>
               <!--<li><a href="general.html">General</a></li>
               <li><a href="buttons.html">Buttons</a></li>

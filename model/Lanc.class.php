@@ -10,20 +10,23 @@ class Lanc extends Main{
 	
 	private $id;
 	
-	/*
+	
+	
 	public function __construct($pdo){
 
 		$this->pdo = $pdo;
 		$this->pdo->exec('SET NAMES utf8');
 
 	}
-	*/
+	
+	
 
 	
 	public function get(){
 
 		//$inicio = $ini;
 		//$maximo = $max;
+
 		$sql="SELECT * FROM FIN_LANC ORDER BY ID";
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute();
@@ -60,27 +63,32 @@ class Lanc extends Main{
 
 	}
 
-	public function insert($params){
-
-		//$sql = "INSERT INTO MEMBROS (NOME, SEXO, NASC, NAT, NAT_UF, NAC, ESTCV, ESC, PROF, RG, UF_RG, CPF, CNH, CAT_CNH, TIT_NUM, TIT_ZONA, TIT_SEC, MAE, PAI, CONJUGE, DT_CASAMENTO, ENDERECO, COMP_END, BAIRRO, CIDADE, CEP, UF, FONE1, FONE2, FONECT, N_FONECT, EMAIL, IGREJA, FUNCECLES, FUNCADM, FUNCADM2, SITUACAO, RECEPCAO, CV, BAT) VALUES ('$nome', '$sexo', '$nasc', '$nat', '$nat_uf', '$nac', '$estcv', '$esc', '$prof', '$rg', '$uf_rg', '$cpf', '$cnh', '$cat_cnh', '$tit_num', '$tit_zona', '$tit_sec', '$mae', '$pai', '$conjuge', '$dt_casamento', '$endereco', '$comp_end', '$bairro', '$cidade', '$cep', '$uf', '$fone1', '$fone2', '$fonect', '$n_fonect', '$email', '$igreja', '$funcecles', '$funcadm', '$funcadm2', '$recepcao', '$cv', '$bat')";
-		$cfoto = !empty($cfoto) ? "CFOTO = '$cfoto'," : '';
-		$codmembro = !empty($codmembro) ? "CODMEMBRO = '$codmembro'," : '';
-		$nasc = !empty($nasc) ? "NASC = '$nasc'," : '';
-		$esc = !empty($esc) ? "ESC = '$esc'," : '';
-		$dt_casamento = !empty($dt_casamento) ? "DT_CASAMENTO = '$dt_casamento'," : '';
+	public function getCat($vtipo){
 		
-		$funcecles = !empty($funcecles) ? ",FUNCECLES = '$funcecles'" : '';
-		$funcadm = !empty($funcadm) ? ",FUNCADM = '$funcadm'" : '';
-		$funcadm2 = !empty($funcadm2) ? ",FUNCADM2 = '$funcadm2'" : '';
-		$recepcao = !empty($recepcao) ? ",RECEPCAO = '$recepcao'" : '';
-		$cv = !empty($cv) ? ",CV = '$cv'" : '';
-		$bat = !empty($bat) ? ",BAT = '$bat'" : '';
+		//echo $vtipo;die();
+		$sql="SELECT * FROM FIN_LANC_TIPO WHERE TIPO = '$vtipo'";
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute();
+
+		$array = Array();
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetchAll();
+
+			return $array;
+		}
+		
+		return $array;
+
+	}
+
+	public function insert($params){
 
 		//echo $nasc, $dt_casamento, $cv, $bat; die();
 		$sql = "INSERT INTO 
-					MEMBROS
+					FIN_LANC
 				SET
-					NOME 			= '$nome',
+								= '$params[0]',
 					".$cfoto."
 					".$codmembro."
 					SEXO 			= '$sexo',

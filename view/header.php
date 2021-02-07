@@ -23,6 +23,7 @@
   <link href="../assets/css/style.css" rel="stylesheet">
   <link href="../assets/css/style-responsive.css" rel="stylesheet">
   <script src="../assets/lib/chart-master/Chart.js"></script>
+  <script src="../assets/lib/jquery/jquery.min.js"></script>
 
   <!-- =======================================================
     Template Name: Dashio

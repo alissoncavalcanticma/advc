@@ -3559,3 +3559,16 @@ input[type="date"].form-control {
 .pagination-pg {
     display: block
 }
+.entrada {
+    background-color: #67eb34;
+    color: #000;
+    width: 8%;
+}
+.saida {
+    background-color: #eb4634;
+    color: #000;
+    width: 8%;
+}
+tr.method_options {
+    display: none;
+}
