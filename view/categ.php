@@ -12,7 +12,7 @@
     $cat = $lancC->getCategoria($TIPO);
 
     foreach($cat as $c){
-        echo "<option value='$c[CAT]'>$c[DESCRICAO]</option>";
+        echo "<option value='$c[ID]'>$c[DESCRICAO]</option>";
     }
 
 ?>

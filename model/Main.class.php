@@ -6,7 +6,7 @@ abstract class Main{
     public $params = array();
 
     abstract public function get();
-    abstract public function insert($params);
+    //abstract public function insert();
     abstract public function edit($params);
     abstract public function delete($params);
 

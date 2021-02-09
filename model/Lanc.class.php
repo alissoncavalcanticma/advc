@@ -63,6 +63,23 @@ class Lanc extends Main{
 
 	}
 
+
+	public function getTipo($cat){
+
+		$cat = intval($cat);
+		$sql = "SELECT TIPO FROM FIN_LANC_TIPO WHERE ID = $cat";
+
+		$sql = $this->pdo->prepare($sql);
+		$sql->execute();
+		
+		if($sql->rowCount() > 0){
+			$cat = $sql->fetch();
+			//print_r($cat);die();
+			return $cat['TIPO'];
+		}
+		return false;
+	}
+
 	public function getCat($vtipo){
 		
 		//echo $vtipo;die();
@@ -82,13 +99,23 @@ class Lanc extends Main{
 
 	}
 
-	public function insert($params){
+	public function insert($cat, $desc, $valor, $venc){
+
+		$tipo = $this->getTipo(intval($cat));
+
+		if($tipo == "E"){
+			echo 'E';die();
+
+		}else if($tipo == "S"){
+			echo 'S';die();
+		}else{
+			echo "false";die();
+		}
 
 		//echo $nasc, $dt_casamento, $cv, $bat; die();
 		$sql = "INSERT INTO 
 					FIN_LANC
 				SET
-					TIPO 			= '$tipo',
 					CAT  			= '$cat',
 					DESC 			= '$desc',
 					VALOR			= '$valor',
@@ -198,6 +225,7 @@ class Lanc extends Main{
 
 		return true;
 	}
+	
 	/*
 	public function getSelectCount($pdo){
 		$selectCount = "SELECT COUNT(*) AS 'ID' FROM MEMBROS";

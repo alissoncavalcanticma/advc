@@ -67,7 +67,7 @@ $LancC = new LancController();
 
                         <!---------- MODAL --------------->
                         <form method="get" action="../controller/LancController.class.php">
-                          
+                              
                         <input type="hidden" name="acao" value="<?= !isset($_GET['ID']) ? 'insert' : 'edit' ?>">
                         <!-- Modal -->
                         <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="margin-top:5%">
@@ -88,7 +88,7 @@ $LancC = new LancController();
                                                         <div class="col-md-9">
                                                               <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                                                               <div class="form-group">
-                                                                <select class="custom-select btn btn-default dropdown-toggle" id="TIPO" name="TIPO" /*onChange="update()"*/>
+                                                                <select class="custom-select btn btn-default dropdown-toggle" id="TIPO" /*name="TIPO"*/ /*onChange="update()"*/>
                                                                     <option value="">........Selecione...........</option>
                                                                     <option value="ENTRADA" <?= isset($_GET['TIPO']) && $_GET['TIPO'] === 'ENTRADA' ? 'selected' : '' ?>>Entrada</option>
                                                                     <option value="SAIDA" <?= isset($_GET['TIPO']) && $_GET['TIPO'] === 'ENTRADA' ? 'selected' : '' ?>>Saída</option>
