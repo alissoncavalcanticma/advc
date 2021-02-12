@@ -103,14 +103,26 @@ class Lanc extends Main{
 
 		$tipo = $this->getTipo(intval($cat));
 
-		if($tipo == "E"){
+		/*if($tipo == "E"){
 			echo 'E';die();
 
 		}else if($tipo == "S"){
 			echo 'S';die();
 		}else{
 			echo "false";die();
+		}*/
+
+		if(!isset($qtd_par)){
+			$qtd_par = '1X';
 		}
+
+
+		
+		$id_reg = $tipo.$qtd_par.str_pad('2' , 11 , '0' , STR_PAD_LEFT);
+		//usar função para pegar ultimo registro 'SELECT max(ID) FROM FIN_LANC'
+
+		echo $id_reg;die();
+
 
 		//echo $nasc, $dt_casamento, $cv, $bat; die();
 		$sql = "INSERT INTO 
