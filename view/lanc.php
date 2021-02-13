@@ -88,7 +88,7 @@ $LancC = new LancController();
                                                         <div class="col-md-9">
                                                               <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                                                               <div class="form-group">
-                                                                <select class="custom-select btn btn-default dropdown-toggle" id="TIPO" /*name="TIPO"*/ /*onChange="update()"*/>
+                                                                <select class="custom-select btn btn-default dropdown-toggle" id="TIPO" /*name="TIPO"*/ /*onChange="update()"*/ required>
                                                                     <option value="">........Selecione...........</option>
                                                                     <option value="ENTRADA" <?= isset($_GET['TIPO']) && $_GET['TIPO'] === 'ENTRADA' ? 'selected' : '' ?>>Entrada</option>
                                                                     <option value="SAIDA" <?= isset($_GET['TIPO']) && $_GET['TIPO'] === 'ENTRADA' ? 'selected' : '' ?>>Saída</option>
@@ -106,7 +106,7 @@ $LancC = new LancController();
                                                           <label class="input-group-text" for="inputGroupSelect01">Categoria</label>
                                                           <div class="form-group">
                                                             <!-- Conteúdo do select carregado dinâmicamente via ajax -->
-                                                            <select style="width:180px" class="custom-select btn btn-default dropdown-toggle" id="CAT" name="CAT">
+                                                            <select style="width:180px" class="custom-select btn btn-default dropdown-toggle" id="CAT" name="CAT" required>
                                                                 
                                                             </select>
                                                           </div>
@@ -124,7 +124,7 @@ $LancC = new LancController();
                                                 <div class="col-md-12">
                                                       <label class="input-group-text" for="inputGroupSelect01">Descrição:</label>
                                                       <div class="form-group">
-                                                        <textarea class="form-control" placeholder="Descrição do lançamento" name="DESCRICAO" id="DESCRICAO" cols="70" rows="10" style="overflow-y: scroll; height: 100px; resize: none;"><?= isset($_GET['PAI']) ? $_GET['PAI'] : "" ?></textarea>
+                                                        <textarea class="form-control" placeholder="Descrição do lançamento" name="DESCRICAO" id="DESCRICAO" cols="70" rows="10" style="overflow-y: scroll; height: 100px; resize: none;" required><?= isset($_GET['PAI']) ? $_GET['PAI'] : "" ?></textarea>
                                                       </div>
                                                       
                                                 </div>
@@ -136,7 +136,7 @@ $LancC = new LancController();
                                                 <!-- VENCIMENTO -->
                                                               <label class="input-group-text" for="inputGroupSelect01">Valor:</label>
                                                               <div class="form-group">
-                                                                <input type="tel" name="VALOR" class="form-control" id="VALOR" placeholder="R$" data-rule="minlen:4" data-msg="R$" maxlength="11" value="<?= isset($_GET['VALOR']) ? $_GET['VALOR'] : "" ?>">
+                                                                <input type="tel" name="VALOR" class="form-control" id="VALOR" placeholder="R$" data-rule="minlen:4" data-msg="R$" maxlength="11" value="<?= isset($_GET['VALOR']) ? $_GET['VALOR'] : "" ?>" required>
                                                               </div>
                                             <!-- END VENCIMENTO -->
                                       </div>
@@ -144,7 +144,7 @@ $LancC = new LancController();
                                             <!-- CATEGORIA -->
                                                         <label class="input-group-text" for="inputGroupSelect01">Vencimento:</label>
                                                         <div class='input-group date' id='datetimepicker10'>
-                                                            <input class="form-control" size="16" type="date" name="VENCIMENTO" id="VENCIMENTO" placeholder="ex: 19/02/1990" value="<?= isset($_GET['VENCIMENTO']) ? $_GET['VENCIMENTO'] : "" ?>" required>
+                                                            <input class="form-control" size="16" type="date" name="VENCIMENTO" id="VENCIMENTO" placeholder="ex: 19/02/1990" value="<?= isset($_GET['VENCIMENTO']) ? $_GET['VENCIMENTO'] : "" ?>">
                                                                 <span class="input-group-addon">
                                                                     <span class="glyphicon glyphicon-calendar">
                                                                     </span>
@@ -285,7 +285,7 @@ $LancC = new LancController();
                       <tr>
                         <th>ID</th>
                         <th class="numeric">Registro</th>
-                        <th>Tipo</th>
+                        <th>Categoria</th>
                         <th>Descrição</th>
                         <th class="numeric">Valor</th>
                         <th class="numeric">Data de Emissão</th>
@@ -305,7 +305,7 @@ $LancC = new LancController();
                           <tr>
                               <td style="width: 3%"><?= $_L['ID']; ?></td>
                               <td <?= (substr($_L['ID_REG'], 0, 1) == 'E') ? "class='entrada'" : "class='saida'" ?> ><?= $_L['ID_REG']; ?></td>
-                              <td class="numeric" style="width: 9%"><?= $_L['TIPO']; ?></td>                            
+                              <td class="numeric" style="width: 9%"><?= Lanc::getSGcat($_L['CAT'], $pdo); ?></td>                            
                               <td class="numeric" style="width: 30%"><?= $_L['DESCRICAO'] ?></td>
                               <td class="numeric" style="width: 10%"><?= $_L['VALOR']; ?></td>
                               <td class="numeric" style="width: 10%"><?= date('d-m-Y', strtotime($_L['DT_REG'])); ?></td>

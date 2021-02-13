@@ -99,10 +99,48 @@ class Lanc extends Main{
 
 	}
 
+	public static function getSGCat($id, $pdo){
+		
+		//echo $vtipo;die();
+		$sql="SELECT CAT FROM FIN_LANC_TIPO WHERE ID = :id";
+		$sql = $pdo->prepare($sql);
+		$sql->bindValue(':id', $id);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$sql = $sql->fetch();
+			
+			$sg = $sql[0];
+			
+			return $sg;
+		}
+		
+		return $sg;
+
+	}	
+
+	public function getLasReg($tipo){
+		//echo $vtipo;die();
+		$sql="SELECT COUNT(FL.ID) FROM FIN_LANC FL INNER JOIN FIN_LANC_TIPO FLT ON FL.CAT = FLT.ID WHERE FLT.TIPO = :tipo";
+		$sql = $this->pdo->prepare($sql);
+		$sql->bindValue(":tipo", $tipo);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$sql = $sql->fetch();
+
+			$last = $sql[0];
+
+			return $last;
+		}
+		
+		return $last;
+	}
+
 	public function insert($cat, $desc, $valor, $venc){
 
 		$tipo = $this->getTipo(intval($cat));
-
+		$venc = !empty($venc) ? ",DT_VENC = '$venc'" : '';
 		/*if($tipo == "E"){
 			echo 'E';die();
 
@@ -113,37 +151,25 @@ class Lanc extends Main{
 		}*/
 
 		if(!isset($qtd_par)){
-			$qtd_par = '1X';
+			$qtd_par = '01X';
 		}
 
-
 		
-		$id_reg = $tipo.$qtd_par.str_pad('2' , 11 , '0' , STR_PAD_LEFT);
-		//usar função para pegar ultimo registro 'SELECT max(ID) FROM FIN_LANC'
+		$id_reg = $tipo.$qtd_par.str_pad(($this->getLasReg($tipo)+1) , 10 , '0' , STR_PAD_LEFT);
 
-		echo $id_reg;die();
+		//echo $id_reg;die();
 
 
 		//echo $nasc, $dt_casamento, $cv, $bat; die();
 		$sql = "INSERT INTO 
 					FIN_LANC
 				SET
+					ID_REG			= '$id_reg',
 					CAT  			= '$cat',
-					DESC 			= '$desc',
-					VALOR			= '$valor',
-					VENC 			= '$venc',
-					";
+					DESCRICAO 		= '$desc',
+					VALOR			= '$valor'
+					".$venc."";
 					
-
-		/*echo $nome.','.$sexo.','.$nasc.','.$nat.','.$nat_uf.','.$nac.','.$estcv.','.$esc.','.$prof.',
-		'.$rg.','.$uf_rg.','.$cpf.','.$cnh.','.$cat_cnh.','.$tit_num.','.$tit_zona.','.$tit_sec.',
-		'.$mae.','.$pai.','.$conjuge.','.$dt_casamento.','.$endereco.','.$comp_end.','.$bairro.','.$cidade.',
-		'.$cep.','.$uf.','.$fone1.','.$fone2.','.$fonect.','.$n_fonect.','.$email.','.$igreja.','.$funcecles.',
-		'.$funcadm.','.$funcadm2.','.$recepcao.','.$cv.','.$bat; die();
-		
-		//*/
-		//echo $nasc, $dt_casamento, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat; die();
-		
 		$sql = $this->pdo->prepare($sql);
 		$sql->execute();
 	}
