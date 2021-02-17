@@ -99,6 +99,7 @@ class Lanc extends Main{
 
 	}
 
+	//get sigla do tipo de categoria
 	public static function getSGCat($id, $pdo){
 		
 		//echo $vtipo;die();

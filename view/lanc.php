@@ -19,15 +19,6 @@ $LancC = new LancController();
 
 <!-- header start -->
 <?php include_once 'header.php'; ?>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#TIPO').change(function(){
-            //$('#CATEGORIA').load('categ.php?acao=getcat&TIPO='+$('#TIPO').val());
-            $('#CAT').load('categ.php?acao=getcat&TIPO='+$('#TIPO').val());
-            //console.log(TIPO);
-        });
-    });
-    </script>
 <!--header end-->
     
 <link href="../assets/css/table-responsive.css" rel="stylesheet">
@@ -61,7 +52,7 @@ $LancC = new LancController();
                     <div style="float:right">
                         
                           <!-- Botão para acionar MODAL -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" id="addLanc">
                         <i class="fa fa-plus"></i>
                         </button>
 
@@ -69,8 +60,9 @@ $LancC = new LancController();
                         <form method="get" action="../controller/LancController.class.php">
                               
                         <input type="hidden" name="acao" value="<?= !isset($_GET['ID']) ? 'insert' : 'edit' ?>">
+                        
                         <!-- Modal -->
-                        <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="margin-top:5%">
+                        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="margin-top:5%">
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -84,6 +76,10 @@ $LancC = new LancController();
                                   <div class="row">
                                       <div class="col" style="float:left">
                                                 <!-- TIPO -->
+                                                <div class="remover_campo">
+                                                  <input type="text" class="form-control" name="meuid" id="meuid">
+                                                </div>
+                                                
                                                 <div class="row rowForm">
                                                         <div class="col-md-9">
                                                               <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
@@ -312,7 +308,8 @@ $LancC = new LancController();
                               <td class="numeric" style="width: 10%"><?= $_L['DT_VENC']; ?></td>
                               <td class="numeric" style="text-align: center; width: 8%">
                                   <!-- <button class="btn btn-success btn-xs"><i class="fa fa-eye"></i></button> -->
-                                  <button class="btn btn-primary btn-xs" onclick="window.location.href='cadLanc.php?acao=view&ID=<?= $_L['ID'] ?>'"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-primary btn-xs" id="btnEditar" data-toggle="modal" data-target="#Modal" data-id="<?= $_L['ID'] ?>"><i class="fa fa-pencil"></i></button>
+                                  <!--<button class="btn btn-primary btn-xs" /*onclick="window.location.href='cadLanc.php?acao=view&ID=<?= $_L['ID'] ?>'"*/ data-toggle="modal" data-target="#Modal"><i class="fa fa-pencil"></i></button>-->
                                   <button class="btn btn-danger btn-xs" onclick="window.location.href='../controller/LancController.class.php?acao=delete&ID=<?= $_L['ID'] ?>'"><i class="fa fa-trash-o "></i></button>
                               </td>
                           </tr>
@@ -340,24 +337,5 @@ $LancC = new LancController();
 
     
 <!--footer start-->
-<script type="text/javascript">
-  
-  /*function update() {
-    var tipo = document.getElementById('TIPO');
-	  var vtipo = tipo.options[tipo.selectedIndex].value;
-        //console.log(vtipo);
-
-        /*
-        $.post("script.php", "vtipo=" + vtipo, function( data ) {
-            console.log(data);
-        });
-        
-        $.post("../controller/LancController.class.php", "vtipo=" + vtipo + "&acao=getCat", function( data ) {
-            console.log(vtipo);
-        });
-				//document.getElementById('value').value = option.value;
-				//document.getElementById('text').value = option.text;
-			}*/
-</script>
 <?php include_once 'footer.php'; ?>
 <!--footer end-->
