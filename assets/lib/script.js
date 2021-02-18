@@ -8,19 +8,34 @@ $(document).ready(function() {
 });
 
 //puxa ID do lançamento para enviar no get do UPDATE dos lançamentos
-$(document).on("click", "#btnEditar", function() {
-    var id = $(this).attr('data-id');
-    console.log(id);
+$(document).on("click", "#addLanc", function() {
+    //var id = $(this).attr('data-id');
+
     //var str = info.split('|');
     //var meuid = str[0];
     //var minhadata = str[1];
-    $("#meuid").val(id);
+    //$("#myid").val(id);
     //$(".modal-body #minhadata").val(minhadata);
+    //var input_id = "<input type='text' class='form-control' name='meuid' id='meuid'>";
+    //$("#myid").attr('name', 'ID');
+    //$("#myid").attr('value', id);
+    $("#acao").attr('value', 'insert');
+    $("#idLanc").removeAttr('name');
+    $("#idLanc").removeAttr('value');
 });
 
-// Remover o div
-$('#addLanc').on("click", ".remover_campo", function(e) {
-    e.preventDefault();
-    $(this).parent('div').remove();
-    x--;
+//puxa ID do lançamento para enviar no get do UPDATE dos lançamentos
+$(document).on("click", "#btnEditar", function() {
+    var id = $(this).attr('data-id');
+
+    //var str = info.split('|');
+    //var meuid = str[0];
+    //var minhadata = str[1];
+    $("#acao").attr('value', 'edit');
+    $("#idLanc").val(id);
+    //$(".modal-body #minhadata").val(minhadata);
+    //var input_id = "<input type='text' class='form-control' name='meuid' id='meuid'>";
+    $("#idLanc").attr('name', 'ID');
+    $("#idLanc").attr('value', id);
+    //console.log(id);
 });

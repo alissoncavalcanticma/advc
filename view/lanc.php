@@ -59,7 +59,7 @@ $LancC = new LancController();
                         <!---------- MODAL --------------->
                         <form method="get" action="../controller/LancController.class.php">
                               
-                        <input type="hidden" name="acao" value="<?= !isset($_GET['ID']) ? 'insert' : 'edit' ?>">
+                        <input type="hidden" id="acao" name="acao">
                         
                         <!-- Modal -->
                         <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" style="margin-top:5%">
@@ -76,8 +76,8 @@ $LancC = new LancController();
                                   <div class="row">
                                       <div class="col" style="float:left">
                                                 <!-- TIPO -->
-                                                <div class="remover_campo">
-                                                  <input type="text" class="form-control" name="meuid" id="meuid">
+                                                <div>
+                                                    <input type="hidden" class='form-control' id='idLanc'>
                                                 </div>
                                                 
                                                 <div class="row rowForm">
@@ -156,7 +156,7 @@ $LancC = new LancController();
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                                <button type="submit" class="btn btn-primary" id="btnSalvar">Salvar mudanças</button>
                               </div>
                             </div>
                           </div>
