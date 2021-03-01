@@ -43,10 +43,26 @@ class Lanc extends Main{
 
 	}
 
-	public function getLanc($params){
+	public function getLanc($id){
 
 		$this->id = $id;
-		$sql="SELECT * FROM MEMBROS WHERE ID = :id";
+		$sql="
+			SELECT 
+				FL.ID, 
+				FL.ID_REG, 
+				FL.CAT, 
+				FL.VALOR, 
+				FL.DESCRICAO, 
+				FL.DT_VENC, 
+				FLT.TIPO 
+				FLT.CAT AS SGCAT
+			FROM 
+			 	FIN_LANC FL 
+				 	INNER JOIN 
+				FIN_LANC_TIPO FLT 
+					ON FL.CAT = FLT.ID 
+			WHERE 
+				FL.ID = :id";
 		$sql = $this->pdo->prepare($sql);
 		$sql->bindValue(":id", $this->id);
 		$sql->execute();
@@ -60,6 +76,7 @@ class Lanc extends Main{
 		}
 		
 		return $array;
+		var_dump($array);die();
 
 	}
 
@@ -77,7 +94,7 @@ class Lanc extends Main{
 			//print_r($cat);die();
 			return $cat['TIPO'];
 		}
-		return false;
+		
 	}
 
 	public function getCat($vtipo){
@@ -90,7 +107,7 @@ class Lanc extends Main{
 		$array = Array();
 
 		if($sql->rowCount() > 0){
-			$array = $sql->fetchAll();
+			$array = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 			return $array;
 		}

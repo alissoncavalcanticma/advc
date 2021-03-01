@@ -79,15 +79,19 @@ $LancC = new LancController();
                                                 <div>
                                                     <input type="hidden" class='form-control' id='idLanc'>
                                                 </div>
+                                                <div id="idTOphp">
+                                                    
+                                                </div>
+                                                
                                                 
                                                 <div class="row rowForm">
                                                         <div class="col-md-9">
                                                               <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
                                                               <div class="form-group">
-                                                                <select class="custom-select btn btn-default dropdown-toggle" id="TIPO" /*name="TIPO"*/ /*onChange="update()"*/ required>
+                                                                <select class="custom-select btn btn-default dropdown-toggle" id="TIPO" name="TIPO" required>
                                                                     <option value="">........Selecione...........</option>
-                                                                    <option value="ENTRADA" <?= isset($_GET['TIPO']) && $_GET['TIPO'] === 'ENTRADA' ? 'selected' : '' ?>>Entrada</option>
-                                                                    <option value="SAIDA" <?= isset($_GET['TIPO']) && $_GET['TIPO'] === 'ENTRADA' ? 'selected' : '' ?>>Saída</option>
+                                                                    <option value="ENTRADA">Entrada</option>
+                                                                    <option value="SAIDA">Saída</option>
                                                                 </select>
                                                               </div>
                                                               
@@ -120,7 +124,7 @@ $LancC = new LancController();
                                                 <div class="col-md-12">
                                                       <label class="input-group-text" for="inputGroupSelect01">Descrição:</label>
                                                       <div class="form-group">
-                                                        <textarea class="form-control" placeholder="Descrição do lançamento" name="DESCRICAO" id="DESCRICAO" cols="70" rows="10" style="overflow-y: scroll; height: 100px; resize: none;" required><?= isset($_GET['PAI']) ? $_GET['PAI'] : "" ?></textarea>
+                                                        <textarea class="form-control" placeholder="Descrição do lançamento" name="DESCRICAO" id="DESCRICAO" cols="70" rows="10" style="overflow-y: scroll; height: 100px; resize: none;" required></textarea>
                                                       </div>
                                                       
                                                 </div>
@@ -129,24 +133,24 @@ $LancC = new LancController();
                                   </div>
                                   <div class="row">
                                       <div class="col-md-4" style="float:left;padding-left:0px">
-                                                <!-- VENCIMENTO -->
+                                                <!-- VALOR -->
                                                               <label class="input-group-text" for="inputGroupSelect01">Valor:</label>
                                                               <div class="form-group">
-                                                                <input type="tel" name="VALOR" class="form-control" id="VALOR" placeholder="R$" data-rule="minlen:4" data-msg="R$" maxlength="11" value="<?= isset($_GET['VALOR']) ? $_GET['VALOR'] : "" ?>" required>
+                                                                <input type="tel" name="VALOR" class="form-control" id="VALOR" placeholder="R$" data-rule="minlen:4" data-msg="R$" maxlength="11" required>
                                                               </div>
-                                            <!-- END VENCIMENTO -->
+                                            <!-- END VALOR -->
                                       </div>
                                       <div class="col-md-3"  style="float:right;width:40%">
-                                            <!-- CATEGORIA -->
+                                            <!-- VENCIMENTO -->
                                                         <label class="input-group-text" for="inputGroupSelect01">Vencimento:</label>
                                                         <div class='input-group date' id='datetimepicker10'>
-                                                            <input class="form-control" size="16" type="date" name="VENCIMENTO" id="VENCIMENTO" placeholder="ex: 19/02/1990" value="<?= isset($_GET['VENCIMENTO']) ? $_GET['VENCIMENTO'] : "" ?>">
+                                                            <input class="form-control" size="16" type="date" name="VENCIMENTO" id="VENCIMENTO" placeholder="ex: 19/02/1990">
                                                                 <span class="input-group-addon">
                                                                     <span class="glyphicon glyphicon-calendar">
                                                                     </span>
                                                                 </span>
                                                         </div>
-                                          <!-- END CATEGORIA -->
+                                          <!-- END VENCIMENTO -->
                                       </div>
                                       
 
@@ -189,6 +193,7 @@ $LancC = new LancController();
                 //multiplicamos a quantidade de registros da pagina pelo valor da pagina atual 
                 $inicio = $maximo * $inicio; 
                 
+                //inclusão da restrição da pesquisa par ao contador
                 if(isset($_GET['where']) && !empty($_GET['where'])){
                   $where = "WHERE ID_REG LIKE '%".$_GET['where']."%'";
                 }else{

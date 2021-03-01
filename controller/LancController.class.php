@@ -15,17 +15,18 @@ if(isset($_REQUEST['acao']) && !empty($_REQUEST['acao'])){
 			header("Location: ../view/lanc.php?display=true&msg=Registro inserido com sucesso");
 			break;
 		case 'view':
-			$array = $lancC->listarLancamento($_GET['ID']);
+			$array = $lancC->listarLancamentos($_GET['ID']);
 			//$_POST = array();
 			header("Location: ../view/cadLanc.php?".http_build_query($array));
 			break;
-		case 'edit':
-			echo "Edit"; die();
+		case 'edit':			
+			//echo "Edit"; die();
 			//echo $_GET['acao'], $_GET['ID'], $_POST['NOME'],  $_POST['NASC']; die();
 			$lancC->editarLancamento($_GET['ID']);
 			//$_POST = array();
-			$array = $lancC->listarLancamento($_GET['ID']);
-			header("Location: ../view/cadLanc.php?".http_build_query($array));
+			//$array = $lancC->listarLancamento($_GET['ID']);
+			//header("Location: ../view/cadLanc.php?".http_build_query($array));
+			header("Location: ../view/lanc.php?display=true&msg=Registro alterado com sucesso");
 			break;
 		case 'delete':
 			//echo $_GET['acao'], $_GET['ID'], $_POST['NOME'],  $_POST['NASC']; die();
@@ -33,6 +34,12 @@ if(isset($_REQUEST['acao']) && !empty($_REQUEST['acao'])){
 			//$_POST = array();
 			//$array = $membroC->listarMembro($_GET['ID']);
 			header("Location: ../view/lanc.php?display=true&msg=Registro deletado com sucesso");
+			break;
+		case 'listLanc':
+			$id = $_GET['ID'];
+			//$tipo = $_GET['TIPO'];
+			$lancC->listarLancamento($id);
+		    
 			break;
 		default:
 			# code...
@@ -45,7 +52,7 @@ if(isset($_REQUEST['acao']) && !empty($_REQUEST['acao'])){
 class LancController{
 
 	
-	public function listarLancamento(){
+	public function listarLancamentos(){
 
 			$pdo = new Conexao();
 			$lanc = new Lanc($pdo);
@@ -67,15 +74,6 @@ class LancController{
 			//echo $tipo; die();
 			return $lanc->getCat($tipo);
 	}
-
-	public function retornaFuncEcles($pFUNCECLES){
-		
-		$func = $pFUNCECLES;
-		$pdo = new Conexao();
-		$membro = new Membro($pdo);
-		
-		return $membro->getFuncEcles($func);
-	}
 	
 	public function cadastrarLanc(){
 	
@@ -96,8 +94,21 @@ class LancController{
 
 	}
 
+
+	public function listarLancamento($id){
+		$pdo = new Conexao();
+		$lanc = new Lanc($pdo);
+
+		echo json_encode($lanc->getLanc($id));
+	}
+
+	
+
 	public function editarMembro($id){
 		
+		/*
+
+
 		//40 campos
 		//echo $id;die();
 		$nome = strtoupper($_POST['NOME']); 
@@ -195,7 +206,7 @@ class LancController{
 		$membro = new Membro($pdo);
 
 		$membro->edit($id, $nome, $cfoto, $codmembro, $sexo, $nasc, $nat, $nat_uf, $nac, $estcv, $esc, $prof, $rg, $uf_rg, $cpf, $cnh, $cat_cnh, $tit_num, $tit_zona, $tit_sec, $mae, $pai, $conjuge, $dt_casamento, $endereco, $comp_end, $bairro, $cidade, $cep, $uf, $fone1, $fone2, $fonect, $n_fonect, $email, $igreja, $funcecles, $funcadm, $funcadm2, $recepcao, $cv, $bat);
-
+		*/
 	}
 
 	public function listarMembro($id){
